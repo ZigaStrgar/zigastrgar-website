@@ -1,0 +1,150 @@
+/*----------------------------------*\
+		Form
+\*----------------------------------*/
+/* Form row properties */
+.form-row {
+	margin-bottom: 1rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	label {
+		font-size: 0.9rem;
+	}
+}
+/* Form control properties - child of form row */
+.form-control {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: 36px;
+	display: block;
+	width: 100%;
+	height: 36px;
+	padding: 0 12px;
+	border: 1px solid #f8f5f5;
+	border-radius: 0;
+	outline: none;
+	background-color: $color-white;
+	background-image: none;
+	@include transition(.2s ease-in-out);
+	&:focus {
+		border-color: #979797;
+	}
+	&--large {
+		font-size: 20px;
+		height: 54px;
+		padding: 0 24px;
+	}
+	&--newsletter {
+		@media #{$small-and-up} {
+			flex: 1;
+		}
+		@media #{$extra-small-and-down} {
+			width: 100%;
+			margin-bottom: 15px;
+		}
+	}
+}
+/* Textarea properties */
+textarea {
+	max-width: 100%;
+	min-height: 150px;
+}
+/* Checkbox properties */
+input[type=checkbox] {
+	outline: none;
+}
+.material {
+	position: relative;
+	padding: 0;
+	margin: 5px;
+	border: none;
+	overflow: visible;
+	textarea{
+		box-sizing: border-box;
+		width: 100%;
+		padding: 12px 10px 8px;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		border-bottom: 1px solid #DDD;
+		font-size: 120%;
+		outline: none;
+		cursor: text;
+		resize: none;
+		background-color: transparent;
+
+		&::-webkit-input-placeholder {
+			transition: color 300ms ease;
+		}
+		&:not(:focus)::-webkit-input-placeholder {
+			color: transparent;
+		}
+	}
+	input {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 12px 10px 8px;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		border-bottom: 1px solid #DDD;
+		font-size: 120%;
+		outline: none;
+		cursor: text;
+		background-color: transparent;
+
+		&::-webkit-input-placeholder {
+			transition: color 300ms ease;
+		}
+		&:not(:focus)::-webkit-input-placeholder {
+			color: transparent;
+		}
+	}
+
+	hr {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 2px;
+		border: none;
+		background-color: $color-blue;
+		font-size: 1px;
+		will-change: transform, visibility;
+		transition: all 200ms ease-out;
+		transform: scaleX(0);
+		visibility: hidden;
+		z-index: 10;
+	}
+	input:focus ~ hr {
+		transform: scaleX(1);
+		visibility: visible;
+	}
+	textarea:focus ~ hr {
+		transform: scaleX(1);
+		visibility: visible;
+	}
+
+	label {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		font-size: 120%;
+		color: #607D8B;
+		transform-origin: 0 -150%;
+		transition: transform 300ms ease;
+		pointer-events: none;
+		font-family: $font-secondary;
+	}
+	input:focus ~ label,
+	input:valid ~ label {
+		transform: scale(0.6);
+	}
+	textarea:focus ~ label,
+	textarea:valid ~ label {
+		transform: scale(0.6);
+	}
+}

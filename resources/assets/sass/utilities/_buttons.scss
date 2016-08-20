@@ -1,0 +1,108 @@
+/*----------------------------------*\
+    Buttons
+\*----------------------------------*/
+.btn {
+    display: inline-block;
+    overflow: hidden;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    border: none;
+    border-radius: 0;
+    font-family: $font-primary;
+
+    @include transition(.2s ease-in-out);
+    /* Focus state shows only on mobile */
+    @media #{$small-and-down} {
+        &:focus {}
+    }
+    &--center{
+        margin: 0 auto;
+    }
+    &--right{
+        float:right;
+    }
+    /* Bordered button with transparent background */
+    &--border-blue{
+        border: solid 2px $color-blue;
+    }
+    &--border-danger{
+        border: solid 2px $btn-danger-bg;
+    }
+    &--border-success{
+        border: solid 2px $btn-success-bg;
+    }
+    /* Floating button - usually with icon inside */
+    &--round {
+        border-radius: 50%;
+    }
+    &--small{
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+    /* Large button - same style as default one, just bigger */
+    &--large {
+        font-size: 1.2rem;
+        padding: 18px 24px;
+    }
+    /* background colors */
+    &--bg-transparent, &--bg-blue {
+        background-color: transparent;
+        &:hover{
+            background-color: $color-blue;
+            color: white !important;
+        }
+    }
+    &--bg-success {
+        background-color: transparent;
+        &:hover{
+            background-color: $btn-success-bg;
+            color: white !important;
+        }
+    }
+    &--bg-danger {
+        background-color: transparent;
+        &:hover{
+            background-color: $btn-danger-bg;
+            color: white !important;
+        }
+    }
+    &--bg-blue-full{
+        background-color: $color-blue;
+        &:hover{
+            background-color: darken($color-blue, 10%);
+        }
+    }
+    &--type{
+        /**
+        * Typing animation with pure CSS.
+        * Works best in browsers supporting the ch unit.
+        */
+        padding-right: 0;
+        h4{
+                 /**
+              * Typing animation with pure CSS.
+              * Works best in browsers supporting the ch unit.
+              */
+              font: bold 100% Consolas, Monaco, monospace;
+             border-right: .1em solid;
+             white-space: nowrap;
+             overflow: hidden;
+             animation: typing 3s steps(24, end), /* # of steps = # of chars */
+                        blink-caret .5s step-end infinite alternate;
+        }
+    }
+    /* text colors */
+    &--text-white {
+        color: $color-white;
+    }
+    span {
+        vertical-align: middle;
+    }
+}
+@keyframes typing { from { width: 0; } }
+@keyframes blink-caret { 50% { border-color: transparent; } }

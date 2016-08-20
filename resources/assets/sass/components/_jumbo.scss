@@ -1,0 +1,53 @@
+.jumbo {
+    height: 50vh;
+    background-size: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover.jpg") no-repeat center center;
+    @include transition(.3s ease-out);
+    h1{
+        text-transform: capitalize;
+        opacity: 0;
+        @include transition(.3s ease-out);
+    }
+    h3 {
+        visibility: hidden;
+        margin-top: 0px;
+        opacity: 0;
+    }
+    button {
+        visibility: hidden;
+        margin-top: 0px;
+        opacity: 0;
+    }
+    &--home{
+        h1{
+            opacity: 1;
+        }
+        h3 {
+            visibility: visible;
+            opacity: 1;
+            @include transition(.2s ease-out);
+        }
+        button {
+            visibility: visible;
+            opacity: 1;
+            @include transition(.2s ease-out);
+        }
+    }
+
+    &--small {
+        height: 40vh;
+        h1{
+            opacity: 1;
+        }
+        h3 {
+            visibility: hidden;
+            margin-top: -55px;
+            opacity: 0;
+        }
+        button {
+            visibility: hidden;
+            margin-top: -30px;
+            opacity: 0;
+        }
+    }
+}

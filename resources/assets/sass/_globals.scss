@@ -1,0 +1,137 @@
+/*----------------------------------*\
+    globals
+\*----------------------------------*/
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    margin: 0;
+    line-height: 1;
+    overflow-x: hidden;
+    margin: 0;
+    //color: $color-black;
+    //font-size: 14px;
+    background-color: #f2f2f2;
+    font-family: $font-secondary;
+    line-height: 1.6;
+}
+section {
+    position: relative;
+}
+iframe {
+    border: 0;
+}
+main {
+    display: block;
+}
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+dl {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+dd {
+    margin-left: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-family: $font-primary;
+    margin: 0;
+}
+i {
+    font-weight: $normal;
+}
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+sup {
+    position: relative;
+    top: -.5em;
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+}
+strong {
+    font-weight: bold;
+}
+figure {
+    margin: 0;
+}
+img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+    text-transform: inherit;
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+    letter-spacing: inherit;
+    background: none;
+    cursor: pointer;
+    overflow: visible;
+    &:focus {
+        outline: 0;
+    }
+}
+form {
+    width: 100%;
+}
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+p {
+    margin: 0 0 10px;
+}
+nav ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+.overflow {
+    overflow: hidden;
+}
+.nopad{
+    padding: 0 !important;
+}
+.mac{
+    position: relative;
+    &__content{
+        position:absolute;
+        top: 8.5%;
+        left:13.6%;
+        width: 72.8%;
+        max-height: 80%;
+        overflow-y: auto;
+        height: 100%;
+        img{
+            margin-right: -8px;
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+.pointer{
+    cursor:pointer;
+}

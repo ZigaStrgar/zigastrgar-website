@@ -1,0 +1,43 @@
+header#header {
+  margin-top: -50px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover.jpg") no-repeat center top fixed;
+  background-size: cover;
+  line-height: 1.2;
+  padding: 10vw 2em;
+  text-align: center;
+  text-shadow: #333 2px 2px 2px;
+  img {
+    display: inline-block;
+    height: 120px;
+    vertical-align: top;
+    width: 120px;
+    border-radius: 100%;
+  }
+  h1 {
+    color: white;
+    font-size: 3.7em;
+    font-weight: 300;
+  }
+  h3 {
+    color: white;
+    font-size: 2em;
+  }
+  p {
+    margin-top: 20px;
+  }
+  a {
+    border: 1px solid #2196f3;
+    color: white;
+    font-size: 0.6em;
+    letter-spacing: 0.2em;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: none 200ms ease-out;
+    transition-property: color, background;
+  }
+  a:hover {
+    background: #2196f3;
+    color: white;
+  }
+}

@@ -1,0 +1,29 @@
+/*----------------------------------*\
+    Table
+\*----------------------------------*/
+.table {
+    overflow: auto;
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    th {
+        text-align: left;
+    }
+    td,
+    th {
+        padding: 10px;
+        vertical-align: middle;
+        border-top: 1px solid #eeeeee;
+    }
+    thead {
+        border-bottom: 2px solid #eeeeee;
+        th {
+            vertical-align: bottom;
+            border-top: 0;
+        }
+    }
+    tfoot {
+        border-top: 2px solid #eeeeee;
+    }
+}

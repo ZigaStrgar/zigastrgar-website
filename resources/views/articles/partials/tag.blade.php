@@ -1,0 +1,1 @@
+<a class="btn btn--border-blue btn--bg-transparent" href="{{ url('tags/'.$tag->name) }}">{{ $tag->name }}</a>

@@ -1,0 +1,101 @@
+/*----------------------------------*\
+		Headings
+\*----------------------------------*/
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+    text-shadow: 0px 3px 3px rgba(0,0,0,1),
+    	           0px 8px 13px rgba(0,0,0,0.4),
+      	         0px 18px 23px rgba(0,0,0,0.4);
+    /*@media #{$medium-and-down} {
+        font-size: inherit;
+    }
+    @media #{$small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra-small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra2-small-and-down} {
+        font-size: inherit;
+    }*/
+}
+h2 {
+    font-size: 48px;
+    font-weight: 400;
+    /*@media #{$medium-and-down} {
+        font-size: inherit;
+    }
+    @media #{$small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra-small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra2-small-and-down} {
+        font-size: inherit;
+    }*/
+}
+h3 {
+    font-size: 24px;
+    font-weight: 300;
+    text-shadow: 0px 2px 2px rgba(0,0,0,1),
+    	           0px 2px 13px rgba(0,0,0,0.4);
+    /*@media #{$medium-and-down} {
+        font-size: inherit;
+    }
+    @media #{$small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra-small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra2-small-and-down} {
+        font-size: inherit;
+    }*/
+}
+h4 {
+    font-size: 24px;
+    /*@media #{$medium-and-down} {
+        font-size: inherit;
+    }
+    @media #{$small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra-small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra2-small-and-down} {
+        font-size: inherit;
+    }*/
+}
+h5 {
+    font-size: inherit;
+    /*@media #{$medium-and-down} {
+        font-size: inherit;
+    }
+    @media #{$small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra-small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra2-small-and-down} {
+        font-size: inherit;
+    }*/
+}
+h6 {
+    font-size: inherit;
+    /*@media #{$medium-and-down} {
+        font-size: inherit;
+    }
+    @media #{$small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra-small-and-down} {
+        font-size: inherit;
+    }
+    @media #{$extra2-small-and-down} {
+        font-size: inherit;
+    }*/
+}

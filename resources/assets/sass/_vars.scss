@@ -1,0 +1,77 @@
+/*----------------------------------*\
+  	Variables
+\*----------------------------------*/
+/*
+	Font Properties
+*/
+/* Font Families */
+$font-primary: "Dosis";
+$font-secondary: "Open Sans";
+
+/* Font Weights */
+$light: 300;
+$normal: 400;
+$bold: 700;
+
+/*
+	Colors
+*/
+$color-white: #ffffff;
+$color-blue: #2082d1;
+/*
+	Media Query Breakpoints
+*/
+$extra2-small-screen: 320px;
+$extra-small-screen-max: 479px;
+$extra-small-screen: 480px;
+$small-screen-max: 767px;
+$small-screen: 768px;
+$medium-screen-max: 991px;
+$medium-screen: 992px;
+$large-screen-max: 1199px;
+$large-screen: 1200px;
+$extra-large-screen-max: 1439px;
+$extra-large-screen: 1440px;
+$extra2-small-and-down: 'only screen and (max-width : #{$extra-small-screen-max})';
+$extra2-small-and-up: 'only screen and (max-width : #{$extra2-small-screen})';
+$extra-small-and-down: 'only screen and (max-width : #{$small-screen-max})';
+$extra-small-and-up: 'only screen and (min-width : #{$extra-small-screen})';
+$small-and-down: 'only screen and (max-width : #{$medium-screen-max})';
+$small-and-up: 'only screen and (min-width : #{$small-screen})';
+$medium-and-down: 'only screen and (max-width : #{$large-screen-max})';
+$medium-and-up: 'only screen and (min-width : #{$medium-screen})';
+$large-and-down: 'only screen and (max-width : #{$extra-large-screen-max})';
+$large-and-up: 'only screen and (min-width : #{$large-screen})';
+$extra-large-and-up: 'only screen and (min-width : #{$extra-large-screen})';
+
+/*
+	Transitions
+*/
+@mixin transition($args: 200ms) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/*
+	Transforms
+*/
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+/*
+	Box-shaddow
+*/
+@mixin box-shadow($args) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -ms-box-shadow: $args;
+  -o-box-shadow: $args;
+  box-shadow: $args;
+}

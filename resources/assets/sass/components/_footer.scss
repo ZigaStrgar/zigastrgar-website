@@ -1,0 +1,23 @@
+.footer{
+  margin-top: 40px;
+  width: 100%;
+  background: lighten($gray-lighter, 5%);
+  padding: 40px 20px;
+  color: darken($gray-lighter, 40%);
+  position: relative;
+  bottom: 0px;
+  &-social{
+    display: block;
+    a{
+      color: darken($gray-lighter, 40%);
+      font-size:26px;
+      margin: 0 10px;
+      display:inline-block;
+      &:hover, &:active{
+        text-decoration: none;
+        color: $link-color;
+        transition: .4s;
+      }
+    }
+  }
+}

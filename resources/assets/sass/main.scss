@@ -1,0 +1,41 @@
+/*
+	Variables
+*/
+@import 'vars';
+
+/*
+    Fonts
+*/
+@import 'components/fonts';
+
+/*
+	Globals
+*/
+@import 'globals';
+
+/*
+	Utilities
+*/
+@import 'utilities/backgrounds';
+@import 'utilities/form';
+@import 'utilities/images';
+@import 'utilities/spacings';
+@import 'utilities/table';
+@import 'utilities/text';
+/*
+	Grid
+*/
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+/*
+	Components
+*/
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import 'components/jumbo';
+@import 'components/article';
+@import 'components/skills';
+@import 'components/footer';
+@import 'components/icons';
+
+@import 'utilities/buttons';
