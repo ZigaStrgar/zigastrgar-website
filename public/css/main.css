@@ -288,6 +288,7 @@ nav ul {
   outline: none;
   background-color: #ffffff;
   background-image: none;
+  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out; }
   .form-control:focus {
     border-color: #979797; }
@@ -297,7 +298,7 @@ nav ul {
     padding: 0 24px; }
   @media only screen and (min-width: 768px) {
     .form-control--newsletter {
-      -ms-flex: 1;
+      -webkit-box-flex: 1;
       flex: 1; } }
   @media only screen and (max-width: 767px) {
     .form-control--newsletter {
@@ -333,6 +334,7 @@ input[type=checkbox] {
     resize: none;
     background-color: transparent; }
     .material textarea::-webkit-input-placeholder {
+      -webkit-transition: color 300ms ease;
       transition: color 300ms ease; }
     .material textarea:not(:focus)::-webkit-input-placeholder {
       color: transparent; }
@@ -349,6 +351,7 @@ input[type=checkbox] {
     cursor: text;
     background-color: transparent; }
     .material input::-webkit-input-placeholder {
+      -webkit-transition: color 300ms ease;
       transition: color 300ms ease; }
     .material input:not(:focus)::-webkit-input-placeholder {
       color: transparent; }
@@ -366,14 +369,18 @@ input[type=checkbox] {
     background-color: #2082d1;
     font-size: 1px;
     will-change: transform, visibility;
+    -webkit-transition: all 200ms ease-out;
     transition: all 200ms ease-out;
+    -webkit-transform: scaleX(0);
     transform: scaleX(0);
     visibility: hidden;
     z-index: 10; }
   .material input:focus ~ hr {
+    -webkit-transform: scaleX(1);
     transform: scaleX(1);
     visibility: visible; }
   .material textarea:focus ~ hr {
+    -webkit-transform: scaleX(1);
     transform: scaleX(1);
     visibility: visible; }
   .material label {
@@ -382,15 +389,21 @@ input[type=checkbox] {
     left: 10px;
     font-size: 120%;
     color: #607D8B;
+    -webkit-transform-origin: 0 -150%;
     transform-origin: 0 -150%;
+    -webkit-transition: -webkit-transform 300ms ease;
+    transition: -webkit-transform 300ms ease;
     transition: transform 300ms ease;
+    transition: transform 300ms ease, -webkit-transform 300ms ease;
     pointer-events: none;
     font-family: "Open Sans"; }
   .material input:focus ~ label,
   .material input:valid ~ label {
+    -webkit-transform: scale(0.6);
     transform: scale(0.6); }
   .material textarea:focus ~ label,
   .material textarea:valid ~ label {
+    -webkit-transform: scale(0.6);
     transform: scale(0.6); }
 
 /*----------------------------------*    Images
@@ -425,6 +438,7 @@ input[type=checkbox] {
       width: 100%;
       height: 100%;
       content: '';
+      -webkit-transition: 0.2s ease-out;
       transition: 0.2s ease-out; }
     .img-hover:hover:after {
       visibility: visible;
@@ -434,16 +448,17 @@ input[type=checkbox] {
       z-index: 2;
       top: 0;
       left: 0;
-      display: -ms-flexbox;
+      display: -webkit-box;
       display: flex;
       visibility: hidden;
       width: 100%;
       height: 100%;
       opacity: 0;
-      -ms-flex-pack: center;
+      -webkit-box-pack: center;
       justify-content: center;
-      -ms-flex-align: center;
+      -webkit-box-align: center;
       align-items: center;
+      -webkit-transition: 0.2s ease-out;
       transition: 0.2s ease-out; }
     .img-hover--content-sth:after {
       content: 'blabla'; }
@@ -464,10 +479,12 @@ input[type=checkbox] {
   background-color: #ffffff; }
   .img-project * {
     box-sizing: border-box;
+    -webkit-transition: all 0.35s;
     transition: all 0.35s; }
   .img-project img {
     vertical-align: top;
     max-width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
   .img-project figcaption {
     position: absolute;
@@ -476,6 +493,7 @@ input[type=checkbox] {
     top: 50%;
     left: 50%;
     padding: 5px 20px;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     line-height: 1.1em;
     overflow: hidden;
@@ -506,9 +524,11 @@ input[type=checkbox] {
     background-color: #000000; }
   .img-project:hover .title,
   .img-project.hover .title {
+    -webkit-transform: translateY(-150%);
     transform: translateY(-150%); }
   .img-project:hover .hover,
   .img-project.hover .hover {
+    -webkit-transform: translateY(-150%);
     transform: translateY(-150%); }
 
 .profile-image {
@@ -860,9 +880,8 @@ input[type=checkbox] {
 .flex,
 .row {
   display: -ms-flex;
-  display: -ms-flexbox;
+  display: -webkit-box;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
 /*
@@ -911,103 +930,100 @@ input[type=checkbox] {
   /* Align flex item on baseline */
   /* Stretch flex item to fill container */ }
   .flex--row {
-    -ms-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
     flex-direction: row;
     -webkit-flex-direction: row; }
   .flex--row-reverse {
-    -ms-flex-direction: row-reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
     flex-direction: row-reverse;
     -webkit-flex-direction: row-reverse; }
   .flex--column {
-    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     flex-direction: column;
     -webkit-flex-direction: column; }
   .flex--column-reverse {
-    -ms-flex-direction: column-reverse;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
     flex-direction: column-reverse;
     -webkit-flex-direction: column-reverse; }
   .flex--justify-left {
-    -ms-flex-pack: start;
+    -webkit-box-pack: start;
     justify-content: flex-start;
     -webkit-justify-content: flex-start; }
   .flex--justify-right {
-    -ms-flex-pack: end;
+    -webkit-box-pack: end;
     justify-content: flex-end;
     -webkit-justify-content: flex-end; }
   .flex--justify-center {
-    -ms-flex-pack: center;
+    -webkit-box-pack: center;
     justify-content: center;
     -webkit-justify-content: center; }
   .flex--justify-space-between {
-    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
     justify-content: space-between;
     -webkit-justify-content: space-between; }
   .flex--justify-space-around {
-    -ms-flex-pack: distribute;
     justify-content: space-around;
     -webkit-justify-content: space-around; }
   .flex--align-top {
-    -ms-flex-align: start;
+    -webkit-box-align: start;
+    -ms-grid-row-align: flex-start;
     align-items: flex-start;
     -webkit-align-items: flex-start; }
   .flex--align-bottom {
-    -ms-flex-align: end;
+    -webkit-box-align: end;
+    -ms-grid-row-align: flex-end;
     align-items: flex-end;
     -webkit-align-items: flex-end; }
   .flex--align-vertical {
-    -ms-flex-align: center;
+    -webkit-box-align: center;
+    -ms-grid-row-align: center;
     align-items: center;
     -webkit-align-items: center; }
   .flex--align-stretch {
-    -ms-flex-align: stretch;
+    -webkit-box-align: stretch;
+    -ms-grid-row-align: stretch;
     align-items: stretch;
     -webkit-align-items: stretch; }
   .flex--align-baseline {
-    -ms-flex-align: baseline;
+    -webkit-box-align: baseline;
+    -ms-grid-row-align: baseline;
     align-items: baseline;
     -webkit-align-items: baseline; }
   .flex--left {
-    -ms-flex-line-pack: start;
     align-content: flex-start;
     -webkit-align-content: flex-start; }
   .flex--right {
-    -ms-flex-line-pack: end;
     align-content: flex-end;
     -webkit-align-content: flex-end; }
   .flex--center {
-    -ms-flex-line-pack: center;
     align-content: center;
     -webkit-align-content: center; }
   .flex--stretch {
-    -ms-flex-line-pack: stretch;
     align-content: stretch;
     -webkit-align-content: stretch; }
   .flex--space-between {
-    -ms-flex-line-pack: justify;
     align-content: space-between;
     -webkit-align-content: space-between; }
   .flex--space-around {
-    -ms-flex-line-pack: distribute;
     align-content: space-around;
     -webkit-align-content: space-around; }
   .flex__item-top {
-    -ms-flex-item-align: start;
     align-self: flex-start;
     -webkit-align-self: flex-start; }
   .flex__item-bottom {
-    -ms-flex-item-align: end;
     align-self: flex-end;
     -webkit-align-self: flex-end; }
   .flex__item-center {
-    -ms-flex-item-align: center;
     align-self: center;
     -webkit-align-self: center; }
   .flex__item-baseline {
-    -ms-flex-item-align: baseline;
     align-self: baseline;
     -webkit-align-self: baseline; }
   .flex__item-stretch {
-    -ms-flex-item-align: stretch;
     align-self: stretch;
     -webkit-align-self: stretch; }
 
@@ -1026,255 +1042,195 @@ input[type=checkbox] {
 @media only screen and (max-width: 767px) {
   .col-xs-1 {
     max-width: 8.33333333%;
-    -ms-flex-preferred-size: 8.33333333%;
     flex-basis: 8.33333333%; }
   .col-xs-2 {
     max-width: 16.66666667%;
-    -ms-flex-preferred-size: 16.66666667%;
     flex-basis: 16.66666667%; }
   .col-xs-3 {
     max-width: 25%;
-    -ms-flex-preferred-size: 25%;
     flex-basis: 25%; }
   .col-xs-4 {
     max-width: 33.3333333333%;
-    -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%; }
   .col-xs-5 {
     max-width: 41.66666667%;
-    -ms-flex-preferred-size: 41.66666667%;
     flex-basis: 41.66666667%; }
   .col-xs-6 {
     max-width: 50%;
-    -ms-flex-preferred-size: 50%;
     flex-basis: 50%; }
   .col-xs-7 {
     max-width: 58.33333333%;
-    -ms-flex-preferred-size: 58.33333333%;
     flex-basis: 58.33333333%; }
   .col-xs-8 {
     max-width: 66.66666667%;
-    -ms-flex-preferred-size: 66.66666667%;
     flex-basis: 66.66666667%; }
   .col-xs-9 {
     max-width: 75%;
-    -ms-flex-preferred-size: 75%;
     flex-basis: 75%; }
   .col-xs-10 {
     max-width: 83.33333333%;
-    -ms-flex-preferred-size: 83.33333333%;
     flex-basis: 83.33333333%; }
   .col-xs-11 {
     max-width: 91.66666667%;
-    -ms-flex-preferred-size: 91.66666667%;
     flex-basis: 91.66666667%; }
   .col-xs-12 {
     max-width: 100%;
-    -ms-flex-preferred-size: 100%;
     flex-basis: 100%; } }
 
 /* Columns for Extra-Small screen */
 @media only screen and (min-width: 480px) {
   .col-xs-1 {
     max-width: 8.33333333%;
-    -ms-flex-preferred-size: 8.33333333%;
     flex-basis: 8.33333333%; }
   .col-xs-2 {
     max-width: 16.66666667%;
-    -ms-flex-preferred-size: 16.66666667%;
     flex-basis: 16.66666667%; }
   .col-xs-3 {
     max-width: 25%;
-    -ms-flex-preferred-size: 25%;
     flex-basis: 25%; }
   .col-xs-4 {
     max-width: 33.3333333333%;
-    -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%; }
   .col-xs-5 {
     max-width: 41.66666667%;
-    -ms-flex-preferred-size: 41.66666667%;
     flex-basis: 41.66666667%; }
   .col-xs-6 {
     max-width: 50%;
-    -ms-flex-preferred-size: 50%;
     flex-basis: 50%; }
   .col-xs-7 {
     max-width: 58.33333333%;
-    -ms-flex-preferred-size: 58.33333333%;
     flex-basis: 58.33333333%; }
   .col-xs-8 {
     max-width: 66.66666667%;
-    -ms-flex-preferred-size: 66.66666667%;
     flex-basis: 66.66666667%; }
   .col-xs-9 {
     max-width: 75%;
-    -ms-flex-preferred-size: 75%;
     flex-basis: 75%; }
   .col-xs-10 {
     max-width: 83.33333333%;
-    -ms-flex-preferred-size: 83.33333333%;
     flex-basis: 83.33333333%; }
   .col-xs-11 {
     max-width: 91.66666667%;
-    -ms-flex-preferred-size: 91.66666667%;
     flex-basis: 91.66666667%; }
   .col-xs-12 {
     max-width: 100%;
-    -ms-flex-preferred-size: 100%;
     flex-basis: 100%; } }
 
 /* Columns for Small screen */
 @media only screen and (min-width: 768px) {
   .col-sm-1 {
     max-width: 8.33333333%;
-    -ms-flex-preferred-size: 8.33333333%;
     flex-basis: 8.33333333%; }
   .col-sm-2 {
     max-width: 16.66666667%;
-    -ms-flex-preferred-size: 16.66666667%;
     flex-basis: 16.66666667%; }
   .col-sm-3 {
     max-width: 25%;
-    -ms-flex-preferred-size: 25%;
     flex-basis: 25%; }
   .col-sm-4 {
     max-width: 33.3333333333%;
-    -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%; }
   .col-sm-5 {
     max-width: 41.66666667%;
-    -ms-flex-preferred-size: 41.66666667%;
     flex-basis: 41.66666667%; }
   .col-sm-6 {
     max-width: 50%;
-    -ms-flex-preferred-size: 50%;
     flex-basis: 50%; }
   .col-sm-7 {
     max-width: 58.33333333%;
-    -ms-flex-preferred-size: 58.33333333%;
     flex-basis: 58.33333333%; }
   .col-sm-8 {
     max-width: 66.66666667%;
-    -ms-flex-preferred-size: 66.66666667%;
     flex-basis: 66.66666667%; }
   .col-sm-9 {
     max-width: 75%;
-    -ms-flex-preferred-size: 75%;
     flex-basis: 75%; }
   .col-sm-10 {
     max-width: 83.33333333%;
-    -ms-flex-preferred-size: 83.33333333%;
     flex-basis: 83.33333333%; }
   .col-sm-11 {
     max-width: 91.66666667%;
-    -ms-flex-preferred-size: 91.66666667%;
     flex-basis: 91.66666667%; }
   .col-sm-12 {
     max-width: 100%;
-    -ms-flex-preferred-size: 100%;
     flex-basis: 100%; } }
 
 /* Columns for Medium screen */
 @media only screen and (min-width: 992px) {
   .col-md-1 {
     max-width: 8.33333333%;
-    -ms-flex-preferred-size: 8.33333333%;
     flex-basis: 8.33333333%; }
   .col-md-2 {
     max-width: 16.66666667%;
-    -ms-flex-preferred-size: 16.66666667%;
     flex-basis: 16.66666667%; }
   .col-md-3 {
     max-width: 25%;
-    -ms-flex-preferred-size: 25%;
     flex-basis: 25%; }
   .col-md-4 {
     max-width: 33.3333333333%;
-    -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%; }
   .col-md-5 {
     max-width: 41.66666667%;
-    -ms-flex-preferred-size: 41.66666667%;
     flex-basis: 41.66666667%; }
   .col-md-6 {
     max-width: 50%;
-    -ms-flex-preferred-size: 50%;
     flex-basis: 50%; }
   .col-md-7 {
     max-width: 58.33333333%;
-    -ms-flex-preferred-size: 58.33333333%;
     flex-basis: 58.33333333%; }
   .col-md-8 {
     max-width: 66.66666667%;
-    -ms-flex-preferred-size: 66.66666667%;
     flex-basis: 66.66666667%; }
   .col-md-9 {
     max-width: 75%;
-    -ms-flex-preferred-size: 75%;
     flex-basis: 75%; }
   .col-md-10 {
     max-width: 83.33333333%;
-    -ms-flex-preferred-size: 83.33333333%;
     flex-basis: 83.33333333%; }
   .col-md-11 {
     max-width: 91.66666667%;
-    -ms-flex-preferred-size: 91.66666667%;
     flex-basis: 91.66666667%; }
   .col-md-12 {
     max-width: 100%;
-    -ms-flex-preferred-size: 100%;
     flex-basis: 100%; } }
 
 /* Columns for Large screen */
 @media only screen and (min-width: 1200px) {
   .col-lg-1 {
     max-width: 8.33333333%;
-    -ms-flex-preferred-size: 8.33333333%;
     flex-basis: 8.33333333%; }
   .col-lg-2 {
     max-width: 16.66666667%;
-    -ms-flex-preferred-size: 16.66666667%;
     flex-basis: 16.66666667%; }
   .col-lg-3 {
     max-width: 25%;
-    -ms-flex-preferred-size: 25%;
     flex-basis: 25%; }
   .col-lg-4 {
     max-width: 33.3333333333%;
-    -ms-flex-preferred-size: 33.3333333333%;
     flex-basis: 33.3333333333%; }
   .col-lg-5 {
     max-width: 41.66666667%;
-    -ms-flex-preferred-size: 41.66666667%;
     flex-basis: 41.66666667%; }
   .col-lg-6 {
     max-width: 50%;
-    -ms-flex-preferred-size: 50%;
     flex-basis: 50%; }
   .col-lg-7 {
     max-width: 58.33333333%;
-    -ms-flex-preferred-size: 58.33333333%;
     flex-basis: 58.33333333%; }
   .col-lg-8 {
     max-width: 66.66666667%;
-    -ms-flex-preferred-size: 66.66666667%;
     flex-basis: 66.66666667%; }
   .col-lg-9 {
     max-width: 75%;
-    -ms-flex-preferred-size: 75%;
     flex-basis: 75%; }
   .col-lg-10 {
     max-width: 83.33333333%;
-    -ms-flex-preferred-size: 83.33333333%;
     flex-basis: 83.33333333%; }
   .col-lg-11 {
     max-width: 91.66666667%;
-    -ms-flex-preferred-size: 91.66666667%;
     flex-basis: 91.66666667%; }
   .col-lg-12 {
     max-width: 100%;
-    -ms-flex-preferred-size: 100%;
     flex-basis: 100%; } }
 
 /* Elements have padding and border included in the element's total width and height */
@@ -1293,6 +1249,7 @@ input[type=checkbox] {
   z-index: 900;
   background: none;
   height: 70px;
+  -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out; }
   .header.scroll {
     height: 45px;
@@ -1324,6 +1281,7 @@ input[type=checkbox] {
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.9);
+      -webkit-transition: 0.2s opacity ease-out;
       transition: 0.2s opacity ease-out; }
       .header__links ul {
         display: block; }
@@ -1338,6 +1296,7 @@ input[type=checkbox] {
     width: 25px;
     height: 30px;
     cursor: pointer;
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
     @media only screen and (min-width: 768px) {
       .header__btn {
@@ -1349,7 +1308,9 @@ input[type=checkbox] {
       height: 3px;
       opacity: 1;
       background: #ffffff;
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
       transition: 0.25s ease-in-out; }
       .header__btn span:nth-child(even) {
         left: 50%;
@@ -1364,8 +1325,10 @@ input[type=checkbox] {
       .header__btn span:nth-child(5), .header__btn span:nth-child(6) {
         top: 21px; }
     .header__btn.open span:nth-child(1), .header__btn.open span:nth-child(6) {
+      -webkit-transform: rotate(45deg);
       transform: rotate(45deg); }
     .header__btn.open span:nth-child(2), .header__btn.open span:nth-child(5) {
+      -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg); }
     .header__btn.open span:nth-child(1) {
       top: 9px;
@@ -1392,8 +1355,8 @@ input[type=checkbox] {
 	Components
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -2443,7 +2406,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -2462,9 +2425,8 @@ a {
   text-decoration: none; }
   a:hover, a:focus {
     color: #23527c;
-    text-decoration: none; }
+    text-decoration: underline; }
   a:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
 
@@ -2488,6 +2450,7 @@ img {
   background-color: #efefef;
   border: 1px solid #ddd;
   border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
@@ -2839,7 +2802,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: "Source Sans Pro", Menlo, Monaco, Consolas, "Courier New", monospace; }
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
 
 code {
   padding: 2px 4px;
@@ -2886,13 +2849,13 @@ pre {
   overflow-y: scroll; }
 
 .container {
-  background: white;
-  padding: 20px;
-  min-height: 55vh;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
-  padding-right: 15px; }
+  padding-right: 15px;
+  min-height: 55vh;
+  padding: 20px;
+  background: white; }
   .container:before, .container:after {
     content: " ";
     display: table; }
@@ -3679,7 +3642,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
@@ -3701,7 +3663,9 @@ output {
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
+  border-radius: 0px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   .form-control:focus {
     border-color: #66afe9;
@@ -4168,7 +4132,6 @@ select[multiple].input-lg,
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
-  -ms-touch-action: manipulation;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none;
@@ -4183,7 +4146,6 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
@@ -4438,7 +4400,7 @@ fieldset[disabled] a.btn {
     border-color: transparent; }
   .btn-link:hover, .btn-link:focus {
     color: #23527c;
-    text-decoration: none;
+    text-decoration: underline;
     background-color: transparent; }
   .btn-link[disabled]:hover, .btn-link[disabled]:focus,
   fieldset[disabled] .btn-link:hover,
@@ -4478,6 +4440,7 @@ input[type="button"].btn-block {
 
 .fade {
   opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear; }
   .fade.in {
     opacity: 1; }
@@ -4497,8 +4460,11 @@ tbody.collapse.in {
   position: relative;
   height: 0;
   overflow: hidden;
+  -webkit-transition-property: height, visibility;
   transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
   transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
   transition-timing-function: ease; }
 
 .caret {
@@ -4841,7 +4807,7 @@ tbody.collapse.in {
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #ccc;
-  border-radius: 4px; }
+  border-radius: 0px; }
   .input-group-addon.input-sm,
   .input-group-sm > .input-group-addon,
   .input-group-sm > .input-group-btn > .input-group-addon.btn {
@@ -5022,7 +4988,9 @@ tbody.collapse.in {
 
 .navbar {
   position: relative;
-  min-height: 50px; }
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent; }
   .navbar:before, .navbar:after {
     content: " ";
     display: table; }
@@ -5297,70 +5265,63 @@ tbody.collapse.in {
     .navbar-right ~ .navbar-right {
       margin-right: 0; } }
 
-.navbar-default .navbar-brand {
-  color: #777; }
-  .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #5e5e5e;
-    background-color: transparent; }
-
-.navbar-default .navbar-text {
-  color: #777; }
-
-.navbar-default .navbar-nav > li > a {
-  color: white; }
-  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #d9d9d9;
-    background-color: transparent; }
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #555;
-  background-color: #e7e7e7; }
-
-.navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
-  color: #ccc;
-  background-color: transparent; }
-
-.navbar-default .navbar-toggle {
-  border-color: #ddd; }
-  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #ddd; }
-  .navbar-default .navbar-toggle .icon-bar {
-    background-color: #888; }
-
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
+.navbar-default {
+  background-color: #f8f8f8;
   border-color: #e7e7e7; }
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #e7e7e7;
-  color: #555; }
-
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  .navbar-default .navbar-brand {
     color: #777; }
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+      color: #5e5e5e;
+      background-color: transparent; }
+  .navbar-default .navbar-text {
+    color: #777; }
+  .navbar-default .navbar-nav > li > a {
+    color: #777; }
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color: #333;
       background-color: transparent; }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #555;
     background-color: #e7e7e7; }
-  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+  .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
     color: #ccc;
-    background-color: transparent; } }
-
-.navbar-default .navbar-link {
-  color: #777; }
-  .navbar-default .navbar-link:hover {
-    color: #333; }
-
-.navbar-default .btn-link {
-  color: #777; }
-  .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
-    color: #333; }
-  .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus,
-  fieldset[disabled] .navbar-default .btn-link:hover,
-  fieldset[disabled] .navbar-default .btn-link:focus {
-    color: #ccc; }
+    background-color: transparent; }
+  .navbar-default .navbar-toggle {
+    border-color: #ddd; }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+      background-color: #ddd; }
+    .navbar-default .navbar-toggle .icon-bar {
+      background-color: #888; }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border-color: #e7e7e7; }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #e7e7e7;
+    color: #555; }
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: #777; }
+      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent; }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #555;
+      background-color: #e7e7e7; }
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+      color: #ccc;
+      background-color: transparent; } }
+  .navbar-default .navbar-link {
+    color: #777; }
+    .navbar-default .navbar-link:hover {
+      color: #333; }
+  .navbar-default .btn-link {
+    color: #777; }
+    .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
+      color: #333; }
+    .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus,
+    fieldset[disabled] .navbar-default .btn-link:hover,
+    fieldset[disabled] .navbar-default .btn-link:focus {
+      color: #ccc; }
 
 .navbar-inverse {
   background-color: #222;
@@ -5563,15 +5524,16 @@ tbody.collapse.in {
     cursor: not-allowed; }
 
 .label {
-  display: inline-block;
+  display: inline;
   padding: .2em .6em .3em;
-  font-size: 95%;
-  line-height: 1.4;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
   color: #fff;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  margin-bottom: 2px; }
+  border-radius: .25em; }
   .label:empty {
     display: none; }
   .btn .label {
@@ -5693,6 +5655,7 @@ a.badge:hover, a.badge:focus {
   background-color: #efefef;
   border: 1px solid #ddd;
   border-radius: 4px;
+  -webkit-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out; }
   .thumbnail > img,
   .thumbnail a > img {
@@ -5772,6 +5735,12 @@ a.thumbnail.active {
   .alert-danger .alert-link {
     color: #843534; }
 
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0; }
+  to {
+    background-position: 0 0; } }
+
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
@@ -5796,35 +5765,42 @@ a.thumbnail.active {
   text-align: center;
   background-color: #337ab7;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease; }
 
 .progress-striped .progress-bar,
 .progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 40px 40px; }
 
 .progress.active .progress-bar,
 .progress-bar.active {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar-success {
   background-color: #5cb85c; }
   .progress-striped .progress-bar-success {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-info {
   background-color: #5bc0de; }
   .progress-striped .progress-bar-info {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-warning {
   background-color: #f0ad4e; }
   .progress-striped .progress-bar-warning {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-danger {
   background-color: #d9534f; }
   .progress-striped .progress-bar-danger {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .media {
@@ -6418,9 +6394,14 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0; }
   .modal.fade .modal-dialog {
+    -webkit-transform: translate(0, -25%);
     transform: translate(0, -25%);
-    transition: transform 0.3s ease-out; }
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; }
   .modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
     transform: translate(0, 0); }
 
 .modal-open .modal {
@@ -6518,7 +6499,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6631,7 +6612,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6754,6 +6735,7 @@ button.close {
   .carousel-inner > .item {
     display: none;
     position: relative;
+    -webkit-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left; }
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img {
@@ -6763,16 +6745,24 @@ button.close {
       line-height: 1; }
     @media all and (transform-3d), (-webkit-transform-3d) {
       .carousel-inner > .item {
+        -webkit-transition: -webkit-transform 0.6s ease-in-out;
+        transition: -webkit-transform 0.6s ease-in-out;
         transition: transform 0.6s ease-in-out;
+        transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        -webkit-perspective: 1000px;
         perspective: 1000px; }
         .carousel-inner > .item.next, .carousel-inner > .item.active.right {
+          -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
+          -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
+          -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
           left: 0; } }
   .carousel-inner > .active,
@@ -6812,12 +6802,14 @@ button.close {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   background-color: transparent; }
   .carousel-control.left {
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1); }
   .carousel-control.right {
     left: auto;
     right: 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1); }
@@ -7134,11 +7126,14 @@ button.close {
 .jumbo {
   height: 50vh;
   background-size: cover;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover.jpg") no-repeat center center;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover.jpg") no-repeat center center;
+  -webkit-transition: 0.3s ease-out;
   transition: 0.3s ease-out; }
   .jumbo h1 {
     text-transform: capitalize;
     opacity: 0;
+    -webkit-transition: 0.3s ease-out;
     transition: 0.3s ease-out; }
   .jumbo h3 {
     visibility: hidden;
@@ -7153,10 +7148,12 @@ button.close {
   .jumbo--home h3 {
     visibility: visible;
     opacity: 1;
+    -webkit-transition: 0.2s ease-out;
     transition: 0.2s ease-out; }
   .jumbo--home button {
     visibility: visible;
     opacity: 1;
+    -webkit-transition: 0.2s ease-out;
     transition: 0.2s ease-out; }
   .jumbo--small {
     height: 40vh; }
@@ -7221,7 +7218,10 @@ button.close {
 .radial-progress .circle .mask,
 .radial-progress .circle .fill {
   -webkit-backface-visibility: hidden;
+  transition: -webkit-transform 1s;
+  -webkit-transition: -webkit-transform 1s;
   transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
   border-radius: 50%; }
 
 .radial-progress .circle .mask {
@@ -7249,6 +7249,7 @@ button.close {
   line-height: 1; }
 
 .radial-progress .inset .percentage .numbers {
+  -webkit-transition: width 1s;
   transition: width 1s;
   width: 130px; }
 
@@ -7262,14 +7263,17 @@ button.close {
   color: #ccc; }
 
 .radial-progress:hover .inset .percentage .numbers span {
+  -webkit-transition: .35s;
   transition: .35s;
   color: #2082d1; }
 
 .radial-progress[data-progress="0"] .circle .mask.full,
 .radial-progress[data-progress="0"] .circle .fill {
+  -webkit-transform: rotate(0deg);
   transform: rotate(0deg); }
 
 .radial-progress[data-progress="0"] .circle .fill.fix {
+  -webkit-transform: rotate(0deg);
   transform: rotate(0deg); }
 
 .radial-progress[data-progress="0"] .inset .percentage .numbers {
@@ -7277,9 +7281,11 @@ button.close {
 
 .radial-progress[data-progress="1"] .circle .mask.full,
 .radial-progress[data-progress="1"] .circle .fill {
+  -webkit-transform: rotate(1.8deg);
   transform: rotate(1.8deg); }
 
 .radial-progress[data-progress="1"] .circle .fill.fix {
+  -webkit-transform: rotate(3.6deg);
   transform: rotate(3.6deg); }
 
 .radial-progress[data-progress="1"] .inset .percentage .numbers {
@@ -7287,9 +7293,11 @@ button.close {
 
 .radial-progress[data-progress="2"] .circle .mask.full,
 .radial-progress[data-progress="2"] .circle .fill {
+  -webkit-transform: rotate(3.6deg);
   transform: rotate(3.6deg); }
 
 .radial-progress[data-progress="2"] .circle .fill.fix {
+  -webkit-transform: rotate(7.2deg);
   transform: rotate(7.2deg); }
 
 .radial-progress[data-progress="2"] .inset .percentage .numbers {
@@ -7297,9 +7305,11 @@ button.close {
 
 .radial-progress[data-progress="3"] .circle .mask.full,
 .radial-progress[data-progress="3"] .circle .fill {
+  -webkit-transform: rotate(5.4deg);
   transform: rotate(5.4deg); }
 
 .radial-progress[data-progress="3"] .circle .fill.fix {
+  -webkit-transform: rotate(10.8deg);
   transform: rotate(10.8deg); }
 
 .radial-progress[data-progress="3"] .inset .percentage .numbers {
@@ -7307,9 +7317,11 @@ button.close {
 
 .radial-progress[data-progress="4"] .circle .mask.full,
 .radial-progress[data-progress="4"] .circle .fill {
+  -webkit-transform: rotate(7.2deg);
   transform: rotate(7.2deg); }
 
 .radial-progress[data-progress="4"] .circle .fill.fix {
+  -webkit-transform: rotate(14.4deg);
   transform: rotate(14.4deg); }
 
 .radial-progress[data-progress="4"] .inset .percentage .numbers {
@@ -7317,9 +7329,11 @@ button.close {
 
 .radial-progress[data-progress="5"] .circle .mask.full,
 .radial-progress[data-progress="5"] .circle .fill {
+  -webkit-transform: rotate(9deg);
   transform: rotate(9deg); }
 
 .radial-progress[data-progress="5"] .circle .fill.fix {
+  -webkit-transform: rotate(18deg);
   transform: rotate(18deg); }
 
 .radial-progress[data-progress="5"] .inset .percentage .numbers {
@@ -7327,9 +7341,11 @@ button.close {
 
 .radial-progress[data-progress="6"] .circle .mask.full,
 .radial-progress[data-progress="6"] .circle .fill {
+  -webkit-transform: rotate(10.8deg);
   transform: rotate(10.8deg); }
 
 .radial-progress[data-progress="6"] .circle .fill.fix {
+  -webkit-transform: rotate(21.6deg);
   transform: rotate(21.6deg); }
 
 .radial-progress[data-progress="6"] .inset .percentage .numbers {
@@ -7337,9 +7353,11 @@ button.close {
 
 .radial-progress[data-progress="7"] .circle .mask.full,
 .radial-progress[data-progress="7"] .circle .fill {
+  -webkit-transform: rotate(12.6deg);
   transform: rotate(12.6deg); }
 
 .radial-progress[data-progress="7"] .circle .fill.fix {
+  -webkit-transform: rotate(25.2deg);
   transform: rotate(25.2deg); }
 
 .radial-progress[data-progress="7"] .inset .percentage .numbers {
@@ -7347,9 +7365,11 @@ button.close {
 
 .radial-progress[data-progress="8"] .circle .mask.full,
 .radial-progress[data-progress="8"] .circle .fill {
+  -webkit-transform: rotate(14.4deg);
   transform: rotate(14.4deg); }
 
 .radial-progress[data-progress="8"] .circle .fill.fix {
+  -webkit-transform: rotate(28.8deg);
   transform: rotate(28.8deg); }
 
 .radial-progress[data-progress="8"] .inset .percentage .numbers {
@@ -7357,9 +7377,11 @@ button.close {
 
 .radial-progress[data-progress="9"] .circle .mask.full,
 .radial-progress[data-progress="9"] .circle .fill {
+  -webkit-transform: rotate(16.2deg);
   transform: rotate(16.2deg); }
 
 .radial-progress[data-progress="9"] .circle .fill.fix {
+  -webkit-transform: rotate(32.4deg);
   transform: rotate(32.4deg); }
 
 .radial-progress[data-progress="9"] .inset .percentage .numbers {
@@ -7367,9 +7389,11 @@ button.close {
 
 .radial-progress[data-progress="10"] .circle .mask.full,
 .radial-progress[data-progress="10"] .circle .fill {
+  -webkit-transform: rotate(18deg);
   transform: rotate(18deg); }
 
 .radial-progress[data-progress="10"] .circle .fill.fix {
+  -webkit-transform: rotate(36deg);
   transform: rotate(36deg); }
 
 .radial-progress[data-progress="10"] .inset .percentage .numbers {
@@ -7377,9 +7401,11 @@ button.close {
 
 .radial-progress[data-progress="11"] .circle .mask.full,
 .radial-progress[data-progress="11"] .circle .fill {
+  -webkit-transform: rotate(19.8deg);
   transform: rotate(19.8deg); }
 
 .radial-progress[data-progress="11"] .circle .fill.fix {
+  -webkit-transform: rotate(39.6deg);
   transform: rotate(39.6deg); }
 
 .radial-progress[data-progress="11"] .inset .percentage .numbers {
@@ -7387,9 +7413,11 @@ button.close {
 
 .radial-progress[data-progress="12"] .circle .mask.full,
 .radial-progress[data-progress="12"] .circle .fill {
+  -webkit-transform: rotate(21.6deg);
   transform: rotate(21.6deg); }
 
 .radial-progress[data-progress="12"] .circle .fill.fix {
+  -webkit-transform: rotate(43.2deg);
   transform: rotate(43.2deg); }
 
 .radial-progress[data-progress="12"] .inset .percentage .numbers {
@@ -7397,9 +7425,11 @@ button.close {
 
 .radial-progress[data-progress="13"] .circle .mask.full,
 .radial-progress[data-progress="13"] .circle .fill {
+  -webkit-transform: rotate(23.4deg);
   transform: rotate(23.4deg); }
 
 .radial-progress[data-progress="13"] .circle .fill.fix {
+  -webkit-transform: rotate(46.8deg);
   transform: rotate(46.8deg); }
 
 .radial-progress[data-progress="13"] .inset .percentage .numbers {
@@ -7407,9 +7437,11 @@ button.close {
 
 .radial-progress[data-progress="14"] .circle .mask.full,
 .radial-progress[data-progress="14"] .circle .fill {
+  -webkit-transform: rotate(25.2deg);
   transform: rotate(25.2deg); }
 
 .radial-progress[data-progress="14"] .circle .fill.fix {
+  -webkit-transform: rotate(50.4deg);
   transform: rotate(50.4deg); }
 
 .radial-progress[data-progress="14"] .inset .percentage .numbers {
@@ -7417,9 +7449,11 @@ button.close {
 
 .radial-progress[data-progress="15"] .circle .mask.full,
 .radial-progress[data-progress="15"] .circle .fill {
+  -webkit-transform: rotate(27deg);
   transform: rotate(27deg); }
 
 .radial-progress[data-progress="15"] .circle .fill.fix {
+  -webkit-transform: rotate(54deg);
   transform: rotate(54deg); }
 
 .radial-progress[data-progress="15"] .inset .percentage .numbers {
@@ -7427,9 +7461,11 @@ button.close {
 
 .radial-progress[data-progress="16"] .circle .mask.full,
 .radial-progress[data-progress="16"] .circle .fill {
+  -webkit-transform: rotate(28.8deg);
   transform: rotate(28.8deg); }
 
 .radial-progress[data-progress="16"] .circle .fill.fix {
+  -webkit-transform: rotate(57.6deg);
   transform: rotate(57.6deg); }
 
 .radial-progress[data-progress="16"] .inset .percentage .numbers {
@@ -7437,9 +7473,11 @@ button.close {
 
 .radial-progress[data-progress="17"] .circle .mask.full,
 .radial-progress[data-progress="17"] .circle .fill {
+  -webkit-transform: rotate(30.6deg);
   transform: rotate(30.6deg); }
 
 .radial-progress[data-progress="17"] .circle .fill.fix {
+  -webkit-transform: rotate(61.2deg);
   transform: rotate(61.2deg); }
 
 .radial-progress[data-progress="17"] .inset .percentage .numbers {
@@ -7447,9 +7485,11 @@ button.close {
 
 .radial-progress[data-progress="18"] .circle .mask.full,
 .radial-progress[data-progress="18"] .circle .fill {
+  -webkit-transform: rotate(32.4deg);
   transform: rotate(32.4deg); }
 
 .radial-progress[data-progress="18"] .circle .fill.fix {
+  -webkit-transform: rotate(64.8deg);
   transform: rotate(64.8deg); }
 
 .radial-progress[data-progress="18"] .inset .percentage .numbers {
@@ -7457,9 +7497,11 @@ button.close {
 
 .radial-progress[data-progress="19"] .circle .mask.full,
 .radial-progress[data-progress="19"] .circle .fill {
+  -webkit-transform: rotate(34.2deg);
   transform: rotate(34.2deg); }
 
 .radial-progress[data-progress="19"] .circle .fill.fix {
+  -webkit-transform: rotate(68.4deg);
   transform: rotate(68.4deg); }
 
 .radial-progress[data-progress="19"] .inset .percentage .numbers {
@@ -7467,9 +7509,11 @@ button.close {
 
 .radial-progress[data-progress="20"] .circle .mask.full,
 .radial-progress[data-progress="20"] .circle .fill {
+  -webkit-transform: rotate(36deg);
   transform: rotate(36deg); }
 
 .radial-progress[data-progress="20"] .circle .fill.fix {
+  -webkit-transform: rotate(72deg);
   transform: rotate(72deg); }
 
 .radial-progress[data-progress="20"] .inset .percentage .numbers {
@@ -7477,9 +7521,11 @@ button.close {
 
 .radial-progress[data-progress="21"] .circle .mask.full,
 .radial-progress[data-progress="21"] .circle .fill {
+  -webkit-transform: rotate(37.8deg);
   transform: rotate(37.8deg); }
 
 .radial-progress[data-progress="21"] .circle .fill.fix {
+  -webkit-transform: rotate(75.6deg);
   transform: rotate(75.6deg); }
 
 .radial-progress[data-progress="21"] .inset .percentage .numbers {
@@ -7487,9 +7533,11 @@ button.close {
 
 .radial-progress[data-progress="22"] .circle .mask.full,
 .radial-progress[data-progress="22"] .circle .fill {
+  -webkit-transform: rotate(39.6deg);
   transform: rotate(39.6deg); }
 
 .radial-progress[data-progress="22"] .circle .fill.fix {
+  -webkit-transform: rotate(79.2deg);
   transform: rotate(79.2deg); }
 
 .radial-progress[data-progress="22"] .inset .percentage .numbers {
@@ -7497,9 +7545,11 @@ button.close {
 
 .radial-progress[data-progress="23"] .circle .mask.full,
 .radial-progress[data-progress="23"] .circle .fill {
+  -webkit-transform: rotate(41.4deg);
   transform: rotate(41.4deg); }
 
 .radial-progress[data-progress="23"] .circle .fill.fix {
+  -webkit-transform: rotate(82.8deg);
   transform: rotate(82.8deg); }
 
 .radial-progress[data-progress="23"] .inset .percentage .numbers {
@@ -7507,9 +7557,11 @@ button.close {
 
 .radial-progress[data-progress="24"] .circle .mask.full,
 .radial-progress[data-progress="24"] .circle .fill {
+  -webkit-transform: rotate(43.2deg);
   transform: rotate(43.2deg); }
 
 .radial-progress[data-progress="24"] .circle .fill.fix {
+  -webkit-transform: rotate(86.4deg);
   transform: rotate(86.4deg); }
 
 .radial-progress[data-progress="24"] .inset .percentage .numbers {
@@ -7517,9 +7569,11 @@ button.close {
 
 .radial-progress[data-progress="25"] .circle .mask.full,
 .radial-progress[data-progress="25"] .circle .fill {
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg); }
 
 .radial-progress[data-progress="25"] .circle .fill.fix {
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 .radial-progress[data-progress="25"] .inset .percentage .numbers {
@@ -7527,9 +7581,11 @@ button.close {
 
 .radial-progress[data-progress="26"] .circle .mask.full,
 .radial-progress[data-progress="26"] .circle .fill {
+  -webkit-transform: rotate(46.8deg);
   transform: rotate(46.8deg); }
 
 .radial-progress[data-progress="26"] .circle .fill.fix {
+  -webkit-transform: rotate(93.6deg);
   transform: rotate(93.6deg); }
 
 .radial-progress[data-progress="26"] .inset .percentage .numbers {
@@ -7537,9 +7593,11 @@ button.close {
 
 .radial-progress[data-progress="27"] .circle .mask.full,
 .radial-progress[data-progress="27"] .circle .fill {
+  -webkit-transform: rotate(48.6deg);
   transform: rotate(48.6deg); }
 
 .radial-progress[data-progress="27"] .circle .fill.fix {
+  -webkit-transform: rotate(97.2deg);
   transform: rotate(97.2deg); }
 
 .radial-progress[data-progress="27"] .inset .percentage .numbers {
@@ -7547,9 +7605,11 @@ button.close {
 
 .radial-progress[data-progress="28"] .circle .mask.full,
 .radial-progress[data-progress="28"] .circle .fill {
+  -webkit-transform: rotate(50.4deg);
   transform: rotate(50.4deg); }
 
 .radial-progress[data-progress="28"] .circle .fill.fix {
+  -webkit-transform: rotate(100.8deg);
   transform: rotate(100.8deg); }
 
 .radial-progress[data-progress="28"] .inset .percentage .numbers {
@@ -7557,9 +7617,11 @@ button.close {
 
 .radial-progress[data-progress="29"] .circle .mask.full,
 .radial-progress[data-progress="29"] .circle .fill {
+  -webkit-transform: rotate(52.2deg);
   transform: rotate(52.2deg); }
 
 .radial-progress[data-progress="29"] .circle .fill.fix {
+  -webkit-transform: rotate(104.4deg);
   transform: rotate(104.4deg); }
 
 .radial-progress[data-progress="29"] .inset .percentage .numbers {
@@ -7567,9 +7629,11 @@ button.close {
 
 .radial-progress[data-progress="30"] .circle .mask.full,
 .radial-progress[data-progress="30"] .circle .fill {
+  -webkit-transform: rotate(54deg);
   transform: rotate(54deg); }
 
 .radial-progress[data-progress="30"] .circle .fill.fix {
+  -webkit-transform: rotate(108deg);
   transform: rotate(108deg); }
 
 .radial-progress[data-progress="30"] .inset .percentage .numbers {
@@ -7577,9 +7641,11 @@ button.close {
 
 .radial-progress[data-progress="31"] .circle .mask.full,
 .radial-progress[data-progress="31"] .circle .fill {
+  -webkit-transform: rotate(55.8deg);
   transform: rotate(55.8deg); }
 
 .radial-progress[data-progress="31"] .circle .fill.fix {
+  -webkit-transform: rotate(111.6deg);
   transform: rotate(111.6deg); }
 
 .radial-progress[data-progress="31"] .inset .percentage .numbers {
@@ -7587,9 +7653,11 @@ button.close {
 
 .radial-progress[data-progress="32"] .circle .mask.full,
 .radial-progress[data-progress="32"] .circle .fill {
+  -webkit-transform: rotate(57.6deg);
   transform: rotate(57.6deg); }
 
 .radial-progress[data-progress="32"] .circle .fill.fix {
+  -webkit-transform: rotate(115.2deg);
   transform: rotate(115.2deg); }
 
 .radial-progress[data-progress="32"] .inset .percentage .numbers {
@@ -7597,9 +7665,11 @@ button.close {
 
 .radial-progress[data-progress="33"] .circle .mask.full,
 .radial-progress[data-progress="33"] .circle .fill {
+  -webkit-transform: rotate(59.4deg);
   transform: rotate(59.4deg); }
 
 .radial-progress[data-progress="33"] .circle .fill.fix {
+  -webkit-transform: rotate(118.8deg);
   transform: rotate(118.8deg); }
 
 .radial-progress[data-progress="33"] .inset .percentage .numbers {
@@ -7607,9 +7677,11 @@ button.close {
 
 .radial-progress[data-progress="34"] .circle .mask.full,
 .radial-progress[data-progress="34"] .circle .fill {
+  -webkit-transform: rotate(61.2deg);
   transform: rotate(61.2deg); }
 
 .radial-progress[data-progress="34"] .circle .fill.fix {
+  -webkit-transform: rotate(122.4deg);
   transform: rotate(122.4deg); }
 
 .radial-progress[data-progress="34"] .inset .percentage .numbers {
@@ -7617,9 +7689,11 @@ button.close {
 
 .radial-progress[data-progress="35"] .circle .mask.full,
 .radial-progress[data-progress="35"] .circle .fill {
+  -webkit-transform: rotate(63deg);
   transform: rotate(63deg); }
 
 .radial-progress[data-progress="35"] .circle .fill.fix {
+  -webkit-transform: rotate(126deg);
   transform: rotate(126deg); }
 
 .radial-progress[data-progress="35"] .inset .percentage .numbers {
@@ -7627,9 +7701,11 @@ button.close {
 
 .radial-progress[data-progress="36"] .circle .mask.full,
 .radial-progress[data-progress="36"] .circle .fill {
+  -webkit-transform: rotate(64.8deg);
   transform: rotate(64.8deg); }
 
 .radial-progress[data-progress="36"] .circle .fill.fix {
+  -webkit-transform: rotate(129.6deg);
   transform: rotate(129.6deg); }
 
 .radial-progress[data-progress="36"] .inset .percentage .numbers {
@@ -7637,9 +7713,11 @@ button.close {
 
 .radial-progress[data-progress="37"] .circle .mask.full,
 .radial-progress[data-progress="37"] .circle .fill {
+  -webkit-transform: rotate(66.6deg);
   transform: rotate(66.6deg); }
 
 .radial-progress[data-progress="37"] .circle .fill.fix {
+  -webkit-transform: rotate(133.2deg);
   transform: rotate(133.2deg); }
 
 .radial-progress[data-progress="37"] .inset .percentage .numbers {
@@ -7647,9 +7725,11 @@ button.close {
 
 .radial-progress[data-progress="38"] .circle .mask.full,
 .radial-progress[data-progress="38"] .circle .fill {
+  -webkit-transform: rotate(68.4deg);
   transform: rotate(68.4deg); }
 
 .radial-progress[data-progress="38"] .circle .fill.fix {
+  -webkit-transform: rotate(136.8deg);
   transform: rotate(136.8deg); }
 
 .radial-progress[data-progress="38"] .inset .percentage .numbers {
@@ -7657,9 +7737,11 @@ button.close {
 
 .radial-progress[data-progress="39"] .circle .mask.full,
 .radial-progress[data-progress="39"] .circle .fill {
+  -webkit-transform: rotate(70.2deg);
   transform: rotate(70.2deg); }
 
 .radial-progress[data-progress="39"] .circle .fill.fix {
+  -webkit-transform: rotate(140.4deg);
   transform: rotate(140.4deg); }
 
 .radial-progress[data-progress="39"] .inset .percentage .numbers {
@@ -7667,9 +7749,11 @@ button.close {
 
 .radial-progress[data-progress="40"] .circle .mask.full,
 .radial-progress[data-progress="40"] .circle .fill {
+  -webkit-transform: rotate(72deg);
   transform: rotate(72deg); }
 
 .radial-progress[data-progress="40"] .circle .fill.fix {
+  -webkit-transform: rotate(144deg);
   transform: rotate(144deg); }
 
 .radial-progress[data-progress="40"] .inset .percentage .numbers {
@@ -7677,9 +7761,11 @@ button.close {
 
 .radial-progress[data-progress="41"] .circle .mask.full,
 .radial-progress[data-progress="41"] .circle .fill {
+  -webkit-transform: rotate(73.8deg);
   transform: rotate(73.8deg); }
 
 .radial-progress[data-progress="41"] .circle .fill.fix {
+  -webkit-transform: rotate(147.6deg);
   transform: rotate(147.6deg); }
 
 .radial-progress[data-progress="41"] .inset .percentage .numbers {
@@ -7687,9 +7773,11 @@ button.close {
 
 .radial-progress[data-progress="42"] .circle .mask.full,
 .radial-progress[data-progress="42"] .circle .fill {
+  -webkit-transform: rotate(75.6deg);
   transform: rotate(75.6deg); }
 
 .radial-progress[data-progress="42"] .circle .fill.fix {
+  -webkit-transform: rotate(151.2deg);
   transform: rotate(151.2deg); }
 
 .radial-progress[data-progress="42"] .inset .percentage .numbers {
@@ -7697,9 +7785,11 @@ button.close {
 
 .radial-progress[data-progress="43"] .circle .mask.full,
 .radial-progress[data-progress="43"] .circle .fill {
+  -webkit-transform: rotate(77.4deg);
   transform: rotate(77.4deg); }
 
 .radial-progress[data-progress="43"] .circle .fill.fix {
+  -webkit-transform: rotate(154.8deg);
   transform: rotate(154.8deg); }
 
 .radial-progress[data-progress="43"] .inset .percentage .numbers {
@@ -7707,9 +7797,11 @@ button.close {
 
 .radial-progress[data-progress="44"] .circle .mask.full,
 .radial-progress[data-progress="44"] .circle .fill {
+  -webkit-transform: rotate(79.2deg);
   transform: rotate(79.2deg); }
 
 .radial-progress[data-progress="44"] .circle .fill.fix {
+  -webkit-transform: rotate(158.4deg);
   transform: rotate(158.4deg); }
 
 .radial-progress[data-progress="44"] .inset .percentage .numbers {
@@ -7717,9 +7809,11 @@ button.close {
 
 .radial-progress[data-progress="45"] .circle .mask.full,
 .radial-progress[data-progress="45"] .circle .fill {
+  -webkit-transform: rotate(81deg);
   transform: rotate(81deg); }
 
 .radial-progress[data-progress="45"] .circle .fill.fix {
+  -webkit-transform: rotate(162deg);
   transform: rotate(162deg); }
 
 .radial-progress[data-progress="45"] .inset .percentage .numbers {
@@ -7727,9 +7821,11 @@ button.close {
 
 .radial-progress[data-progress="46"] .circle .mask.full,
 .radial-progress[data-progress="46"] .circle .fill {
+  -webkit-transform: rotate(82.8deg);
   transform: rotate(82.8deg); }
 
 .radial-progress[data-progress="46"] .circle .fill.fix {
+  -webkit-transform: rotate(165.6deg);
   transform: rotate(165.6deg); }
 
 .radial-progress[data-progress="46"] .inset .percentage .numbers {
@@ -7737,9 +7833,11 @@ button.close {
 
 .radial-progress[data-progress="47"] .circle .mask.full,
 .radial-progress[data-progress="47"] .circle .fill {
+  -webkit-transform: rotate(84.6deg);
   transform: rotate(84.6deg); }
 
 .radial-progress[data-progress="47"] .circle .fill.fix {
+  -webkit-transform: rotate(169.2deg);
   transform: rotate(169.2deg); }
 
 .radial-progress[data-progress="47"] .inset .percentage .numbers {
@@ -7747,9 +7845,11 @@ button.close {
 
 .radial-progress[data-progress="48"] .circle .mask.full,
 .radial-progress[data-progress="48"] .circle .fill {
+  -webkit-transform: rotate(86.4deg);
   transform: rotate(86.4deg); }
 
 .radial-progress[data-progress="48"] .circle .fill.fix {
+  -webkit-transform: rotate(172.8deg);
   transform: rotate(172.8deg); }
 
 .radial-progress[data-progress="48"] .inset .percentage .numbers {
@@ -7757,9 +7857,11 @@ button.close {
 
 .radial-progress[data-progress="49"] .circle .mask.full,
 .radial-progress[data-progress="49"] .circle .fill {
+  -webkit-transform: rotate(88.2deg);
   transform: rotate(88.2deg); }
 
 .radial-progress[data-progress="49"] .circle .fill.fix {
+  -webkit-transform: rotate(176.4deg);
   transform: rotate(176.4deg); }
 
 .radial-progress[data-progress="49"] .inset .percentage .numbers {
@@ -7767,9 +7869,11 @@ button.close {
 
 .radial-progress[data-progress="50"] .circle .mask.full,
 .radial-progress[data-progress="50"] .circle .fill {
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 .radial-progress[data-progress="50"] .circle .fill.fix {
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .radial-progress[data-progress="50"] .inset .percentage .numbers {
@@ -7777,9 +7881,11 @@ button.close {
 
 .radial-progress[data-progress="51"] .circle .mask.full,
 .radial-progress[data-progress="51"] .circle .fill {
+  -webkit-transform: rotate(91.8deg);
   transform: rotate(91.8deg); }
 
 .radial-progress[data-progress="51"] .circle .fill.fix {
+  -webkit-transform: rotate(183.6deg);
   transform: rotate(183.6deg); }
 
 .radial-progress[data-progress="51"] .inset .percentage .numbers {
@@ -7787,9 +7893,11 @@ button.close {
 
 .radial-progress[data-progress="52"] .circle .mask.full,
 .radial-progress[data-progress="52"] .circle .fill {
+  -webkit-transform: rotate(93.6deg);
   transform: rotate(93.6deg); }
 
 .radial-progress[data-progress="52"] .circle .fill.fix {
+  -webkit-transform: rotate(187.2deg);
   transform: rotate(187.2deg); }
 
 .radial-progress[data-progress="52"] .inset .percentage .numbers {
@@ -7797,9 +7905,11 @@ button.close {
 
 .radial-progress[data-progress="53"] .circle .mask.full,
 .radial-progress[data-progress="53"] .circle .fill {
+  -webkit-transform: rotate(95.4deg);
   transform: rotate(95.4deg); }
 
 .radial-progress[data-progress="53"] .circle .fill.fix {
+  -webkit-transform: rotate(190.8deg);
   transform: rotate(190.8deg); }
 
 .radial-progress[data-progress="53"] .inset .percentage .numbers {
@@ -7807,9 +7917,11 @@ button.close {
 
 .radial-progress[data-progress="54"] .circle .mask.full,
 .radial-progress[data-progress="54"] .circle .fill {
+  -webkit-transform: rotate(97.2deg);
   transform: rotate(97.2deg); }
 
 .radial-progress[data-progress="54"] .circle .fill.fix {
+  -webkit-transform: rotate(194.4deg);
   transform: rotate(194.4deg); }
 
 .radial-progress[data-progress="54"] .inset .percentage .numbers {
@@ -7817,9 +7929,11 @@ button.close {
 
 .radial-progress[data-progress="55"] .circle .mask.full,
 .radial-progress[data-progress="55"] .circle .fill {
+  -webkit-transform: rotate(99deg);
   transform: rotate(99deg); }
 
 .radial-progress[data-progress="55"] .circle .fill.fix {
+  -webkit-transform: rotate(198deg);
   transform: rotate(198deg); }
 
 .radial-progress[data-progress="55"] .inset .percentage .numbers {
@@ -7827,9 +7941,11 @@ button.close {
 
 .radial-progress[data-progress="56"] .circle .mask.full,
 .radial-progress[data-progress="56"] .circle .fill {
+  -webkit-transform: rotate(100.8deg);
   transform: rotate(100.8deg); }
 
 .radial-progress[data-progress="56"] .circle .fill.fix {
+  -webkit-transform: rotate(201.6deg);
   transform: rotate(201.6deg); }
 
 .radial-progress[data-progress="56"] .inset .percentage .numbers {
@@ -7837,9 +7953,11 @@ button.close {
 
 .radial-progress[data-progress="57"] .circle .mask.full,
 .radial-progress[data-progress="57"] .circle .fill {
+  -webkit-transform: rotate(102.6deg);
   transform: rotate(102.6deg); }
 
 .radial-progress[data-progress="57"] .circle .fill.fix {
+  -webkit-transform: rotate(205.2deg);
   transform: rotate(205.2deg); }
 
 .radial-progress[data-progress="57"] .inset .percentage .numbers {
@@ -7847,9 +7965,11 @@ button.close {
 
 .radial-progress[data-progress="58"] .circle .mask.full,
 .radial-progress[data-progress="58"] .circle .fill {
+  -webkit-transform: rotate(104.4deg);
   transform: rotate(104.4deg); }
 
 .radial-progress[data-progress="58"] .circle .fill.fix {
+  -webkit-transform: rotate(208.8deg);
   transform: rotate(208.8deg); }
 
 .radial-progress[data-progress="58"] .inset .percentage .numbers {
@@ -7857,9 +7977,11 @@ button.close {
 
 .radial-progress[data-progress="59"] .circle .mask.full,
 .radial-progress[data-progress="59"] .circle .fill {
+  -webkit-transform: rotate(106.2deg);
   transform: rotate(106.2deg); }
 
 .radial-progress[data-progress="59"] .circle .fill.fix {
+  -webkit-transform: rotate(212.4deg);
   transform: rotate(212.4deg); }
 
 .radial-progress[data-progress="59"] .inset .percentage .numbers {
@@ -7867,9 +7989,11 @@ button.close {
 
 .radial-progress[data-progress="60"] .circle .mask.full,
 .radial-progress[data-progress="60"] .circle .fill {
+  -webkit-transform: rotate(108deg);
   transform: rotate(108deg); }
 
 .radial-progress[data-progress="60"] .circle .fill.fix {
+  -webkit-transform: rotate(216deg);
   transform: rotate(216deg); }
 
 .radial-progress[data-progress="60"] .inset .percentage .numbers {
@@ -7877,9 +8001,11 @@ button.close {
 
 .radial-progress[data-progress="61"] .circle .mask.full,
 .radial-progress[data-progress="61"] .circle .fill {
+  -webkit-transform: rotate(109.8deg);
   transform: rotate(109.8deg); }
 
 .radial-progress[data-progress="61"] .circle .fill.fix {
+  -webkit-transform: rotate(219.6deg);
   transform: rotate(219.6deg); }
 
 .radial-progress[data-progress="61"] .inset .percentage .numbers {
@@ -7887,9 +8013,11 @@ button.close {
 
 .radial-progress[data-progress="62"] .circle .mask.full,
 .radial-progress[data-progress="62"] .circle .fill {
+  -webkit-transform: rotate(111.6deg);
   transform: rotate(111.6deg); }
 
 .radial-progress[data-progress="62"] .circle .fill.fix {
+  -webkit-transform: rotate(223.2deg);
   transform: rotate(223.2deg); }
 
 .radial-progress[data-progress="62"] .inset .percentage .numbers {
@@ -7897,9 +8025,11 @@ button.close {
 
 .radial-progress[data-progress="63"] .circle .mask.full,
 .radial-progress[data-progress="63"] .circle .fill {
+  -webkit-transform: rotate(113.4deg);
   transform: rotate(113.4deg); }
 
 .radial-progress[data-progress="63"] .circle .fill.fix {
+  -webkit-transform: rotate(226.8deg);
   transform: rotate(226.8deg); }
 
 .radial-progress[data-progress="63"] .inset .percentage .numbers {
@@ -7907,9 +8037,11 @@ button.close {
 
 .radial-progress[data-progress="64"] .circle .mask.full,
 .radial-progress[data-progress="64"] .circle .fill {
+  -webkit-transform: rotate(115.2deg);
   transform: rotate(115.2deg); }
 
 .radial-progress[data-progress="64"] .circle .fill.fix {
+  -webkit-transform: rotate(230.4deg);
   transform: rotate(230.4deg); }
 
 .radial-progress[data-progress="64"] .inset .percentage .numbers {
@@ -7917,9 +8049,11 @@ button.close {
 
 .radial-progress[data-progress="65"] .circle .mask.full,
 .radial-progress[data-progress="65"] .circle .fill {
+  -webkit-transform: rotate(117deg);
   transform: rotate(117deg); }
 
 .radial-progress[data-progress="65"] .circle .fill.fix {
+  -webkit-transform: rotate(234deg);
   transform: rotate(234deg); }
 
 .radial-progress[data-progress="65"] .inset .percentage .numbers {
@@ -7927,9 +8061,11 @@ button.close {
 
 .radial-progress[data-progress="66"] .circle .mask.full,
 .radial-progress[data-progress="66"] .circle .fill {
+  -webkit-transform: rotate(118.8deg);
   transform: rotate(118.8deg); }
 
 .radial-progress[data-progress="66"] .circle .fill.fix {
+  -webkit-transform: rotate(237.6deg);
   transform: rotate(237.6deg); }
 
 .radial-progress[data-progress="66"] .inset .percentage .numbers {
@@ -7937,9 +8073,11 @@ button.close {
 
 .radial-progress[data-progress="67"] .circle .mask.full,
 .radial-progress[data-progress="67"] .circle .fill {
+  -webkit-transform: rotate(120.6deg);
   transform: rotate(120.6deg); }
 
 .radial-progress[data-progress="67"] .circle .fill.fix {
+  -webkit-transform: rotate(241.2deg);
   transform: rotate(241.2deg); }
 
 .radial-progress[data-progress="67"] .inset .percentage .numbers {
@@ -7947,9 +8085,11 @@ button.close {
 
 .radial-progress[data-progress="68"] .circle .mask.full,
 .radial-progress[data-progress="68"] .circle .fill {
+  -webkit-transform: rotate(122.4deg);
   transform: rotate(122.4deg); }
 
 .radial-progress[data-progress="68"] .circle .fill.fix {
+  -webkit-transform: rotate(244.8deg);
   transform: rotate(244.8deg); }
 
 .radial-progress[data-progress="68"] .inset .percentage .numbers {
@@ -7957,9 +8097,11 @@ button.close {
 
 .radial-progress[data-progress="69"] .circle .mask.full,
 .radial-progress[data-progress="69"] .circle .fill {
+  -webkit-transform: rotate(124.2deg);
   transform: rotate(124.2deg); }
 
 .radial-progress[data-progress="69"] .circle .fill.fix {
+  -webkit-transform: rotate(248.4deg);
   transform: rotate(248.4deg); }
 
 .radial-progress[data-progress="69"] .inset .percentage .numbers {
@@ -7967,9 +8109,11 @@ button.close {
 
 .radial-progress[data-progress="70"] .circle .mask.full,
 .radial-progress[data-progress="70"] .circle .fill {
+  -webkit-transform: rotate(126deg);
   transform: rotate(126deg); }
 
 .radial-progress[data-progress="70"] .circle .fill.fix {
+  -webkit-transform: rotate(252deg);
   transform: rotate(252deg); }
 
 .radial-progress[data-progress="70"] .inset .percentage .numbers {
@@ -7977,9 +8121,11 @@ button.close {
 
 .radial-progress[data-progress="71"] .circle .mask.full,
 .radial-progress[data-progress="71"] .circle .fill {
+  -webkit-transform: rotate(127.8deg);
   transform: rotate(127.8deg); }
 
 .radial-progress[data-progress="71"] .circle .fill.fix {
+  -webkit-transform: rotate(255.6deg);
   transform: rotate(255.6deg); }
 
 .radial-progress[data-progress="71"] .inset .percentage .numbers {
@@ -7987,9 +8133,11 @@ button.close {
 
 .radial-progress[data-progress="72"] .circle .mask.full,
 .radial-progress[data-progress="72"] .circle .fill {
+  -webkit-transform: rotate(129.6deg);
   transform: rotate(129.6deg); }
 
 .radial-progress[data-progress="72"] .circle .fill.fix {
+  -webkit-transform: rotate(259.2deg);
   transform: rotate(259.2deg); }
 
 .radial-progress[data-progress="72"] .inset .percentage .numbers {
@@ -7997,9 +8145,11 @@ button.close {
 
 .radial-progress[data-progress="73"] .circle .mask.full,
 .radial-progress[data-progress="73"] .circle .fill {
+  -webkit-transform: rotate(131.4deg);
   transform: rotate(131.4deg); }
 
 .radial-progress[data-progress="73"] .circle .fill.fix {
+  -webkit-transform: rotate(262.8deg);
   transform: rotate(262.8deg); }
 
 .radial-progress[data-progress="73"] .inset .percentage .numbers {
@@ -8007,9 +8157,11 @@ button.close {
 
 .radial-progress[data-progress="74"] .circle .mask.full,
 .radial-progress[data-progress="74"] .circle .fill {
+  -webkit-transform: rotate(133.2deg);
   transform: rotate(133.2deg); }
 
 .radial-progress[data-progress="74"] .circle .fill.fix {
+  -webkit-transform: rotate(266.4deg);
   transform: rotate(266.4deg); }
 
 .radial-progress[data-progress="74"] .inset .percentage .numbers {
@@ -8017,9 +8169,11 @@ button.close {
 
 .radial-progress[data-progress="75"] .circle .mask.full,
 .radial-progress[data-progress="75"] .circle .fill {
+  -webkit-transform: rotate(135deg);
   transform: rotate(135deg); }
 
 .radial-progress[data-progress="75"] .circle .fill.fix {
+  -webkit-transform: rotate(270deg);
   transform: rotate(270deg); }
 
 .radial-progress[data-progress="75"] .inset .percentage .numbers {
@@ -8027,9 +8181,11 @@ button.close {
 
 .radial-progress[data-progress="76"] .circle .mask.full,
 .radial-progress[data-progress="76"] .circle .fill {
+  -webkit-transform: rotate(136.8deg);
   transform: rotate(136.8deg); }
 
 .radial-progress[data-progress="76"] .circle .fill.fix {
+  -webkit-transform: rotate(273.6deg);
   transform: rotate(273.6deg); }
 
 .radial-progress[data-progress="76"] .inset .percentage .numbers {
@@ -8037,9 +8193,11 @@ button.close {
 
 .radial-progress[data-progress="77"] .circle .mask.full,
 .radial-progress[data-progress="77"] .circle .fill {
+  -webkit-transform: rotate(138.6deg);
   transform: rotate(138.6deg); }
 
 .radial-progress[data-progress="77"] .circle .fill.fix {
+  -webkit-transform: rotate(277.2deg);
   transform: rotate(277.2deg); }
 
 .radial-progress[data-progress="77"] .inset .percentage .numbers {
@@ -8047,9 +8205,11 @@ button.close {
 
 .radial-progress[data-progress="78"] .circle .mask.full,
 .radial-progress[data-progress="78"] .circle .fill {
+  -webkit-transform: rotate(140.4deg);
   transform: rotate(140.4deg); }
 
 .radial-progress[data-progress="78"] .circle .fill.fix {
+  -webkit-transform: rotate(280.8deg);
   transform: rotate(280.8deg); }
 
 .radial-progress[data-progress="78"] .inset .percentage .numbers {
@@ -8057,9 +8217,11 @@ button.close {
 
 .radial-progress[data-progress="79"] .circle .mask.full,
 .radial-progress[data-progress="79"] .circle .fill {
+  -webkit-transform: rotate(142.2deg);
   transform: rotate(142.2deg); }
 
 .radial-progress[data-progress="79"] .circle .fill.fix {
+  -webkit-transform: rotate(284.4deg);
   transform: rotate(284.4deg); }
 
 .radial-progress[data-progress="79"] .inset .percentage .numbers {
@@ -8067,9 +8229,11 @@ button.close {
 
 .radial-progress[data-progress="80"] .circle .mask.full,
 .radial-progress[data-progress="80"] .circle .fill {
+  -webkit-transform: rotate(144deg);
   transform: rotate(144deg); }
 
 .radial-progress[data-progress="80"] .circle .fill.fix {
+  -webkit-transform: rotate(288deg);
   transform: rotate(288deg); }
 
 .radial-progress[data-progress="80"] .inset .percentage .numbers {
@@ -8077,9 +8241,11 @@ button.close {
 
 .radial-progress[data-progress="81"] .circle .mask.full,
 .radial-progress[data-progress="81"] .circle .fill {
+  -webkit-transform: rotate(145.8deg);
   transform: rotate(145.8deg); }
 
 .radial-progress[data-progress="81"] .circle .fill.fix {
+  -webkit-transform: rotate(291.6deg);
   transform: rotate(291.6deg); }
 
 .radial-progress[data-progress="81"] .inset .percentage .numbers {
@@ -8087,9 +8253,11 @@ button.close {
 
 .radial-progress[data-progress="82"] .circle .mask.full,
 .radial-progress[data-progress="82"] .circle .fill {
+  -webkit-transform: rotate(147.6deg);
   transform: rotate(147.6deg); }
 
 .radial-progress[data-progress="82"] .circle .fill.fix {
+  -webkit-transform: rotate(295.2deg);
   transform: rotate(295.2deg); }
 
 .radial-progress[data-progress="82"] .inset .percentage .numbers {
@@ -8097,9 +8265,11 @@ button.close {
 
 .radial-progress[data-progress="83"] .circle .mask.full,
 .radial-progress[data-progress="83"] .circle .fill {
+  -webkit-transform: rotate(149.4deg);
   transform: rotate(149.4deg); }
 
 .radial-progress[data-progress="83"] .circle .fill.fix {
+  -webkit-transform: rotate(298.8deg);
   transform: rotate(298.8deg); }
 
 .radial-progress[data-progress="83"] .inset .percentage .numbers {
@@ -8107,9 +8277,11 @@ button.close {
 
 .radial-progress[data-progress="84"] .circle .mask.full,
 .radial-progress[data-progress="84"] .circle .fill {
+  -webkit-transform: rotate(151.2deg);
   transform: rotate(151.2deg); }
 
 .radial-progress[data-progress="84"] .circle .fill.fix {
+  -webkit-transform: rotate(302.4deg);
   transform: rotate(302.4deg); }
 
 .radial-progress[data-progress="84"] .inset .percentage .numbers {
@@ -8117,9 +8289,11 @@ button.close {
 
 .radial-progress[data-progress="85"] .circle .mask.full,
 .radial-progress[data-progress="85"] .circle .fill {
+  -webkit-transform: rotate(153deg);
   transform: rotate(153deg); }
 
 .radial-progress[data-progress="85"] .circle .fill.fix {
+  -webkit-transform: rotate(306deg);
   transform: rotate(306deg); }
 
 .radial-progress[data-progress="85"] .inset .percentage .numbers {
@@ -8127,9 +8301,11 @@ button.close {
 
 .radial-progress[data-progress="86"] .circle .mask.full,
 .radial-progress[data-progress="86"] .circle .fill {
+  -webkit-transform: rotate(154.8deg);
   transform: rotate(154.8deg); }
 
 .radial-progress[data-progress="86"] .circle .fill.fix {
+  -webkit-transform: rotate(309.6deg);
   transform: rotate(309.6deg); }
 
 .radial-progress[data-progress="86"] .inset .percentage .numbers {
@@ -8137,9 +8313,11 @@ button.close {
 
 .radial-progress[data-progress="87"] .circle .mask.full,
 .radial-progress[data-progress="87"] .circle .fill {
+  -webkit-transform: rotate(156.6deg);
   transform: rotate(156.6deg); }
 
 .radial-progress[data-progress="87"] .circle .fill.fix {
+  -webkit-transform: rotate(313.2deg);
   transform: rotate(313.2deg); }
 
 .radial-progress[data-progress="87"] .inset .percentage .numbers {
@@ -8147,9 +8325,11 @@ button.close {
 
 .radial-progress[data-progress="88"] .circle .mask.full,
 .radial-progress[data-progress="88"] .circle .fill {
+  -webkit-transform: rotate(158.4deg);
   transform: rotate(158.4deg); }
 
 .radial-progress[data-progress="88"] .circle .fill.fix {
+  -webkit-transform: rotate(316.8deg);
   transform: rotate(316.8deg); }
 
 .radial-progress[data-progress="88"] .inset .percentage .numbers {
@@ -8157,9 +8337,11 @@ button.close {
 
 .radial-progress[data-progress="89"] .circle .mask.full,
 .radial-progress[data-progress="89"] .circle .fill {
+  -webkit-transform: rotate(160.2deg);
   transform: rotate(160.2deg); }
 
 .radial-progress[data-progress="89"] .circle .fill.fix {
+  -webkit-transform: rotate(320.4deg);
   transform: rotate(320.4deg); }
 
 .radial-progress[data-progress="89"] .inset .percentage .numbers {
@@ -8167,9 +8349,11 @@ button.close {
 
 .radial-progress[data-progress="90"] .circle .mask.full,
 .radial-progress[data-progress="90"] .circle .fill {
+  -webkit-transform: rotate(162deg);
   transform: rotate(162deg); }
 
 .radial-progress[data-progress="90"] .circle .fill.fix {
+  -webkit-transform: rotate(324deg);
   transform: rotate(324deg); }
 
 .radial-progress[data-progress="90"] .inset .percentage .numbers {
@@ -8177,9 +8361,11 @@ button.close {
 
 .radial-progress[data-progress="91"] .circle .mask.full,
 .radial-progress[data-progress="91"] .circle .fill {
+  -webkit-transform: rotate(163.8deg);
   transform: rotate(163.8deg); }
 
 .radial-progress[data-progress="91"] .circle .fill.fix {
+  -webkit-transform: rotate(327.6deg);
   transform: rotate(327.6deg); }
 
 .radial-progress[data-progress="91"] .inset .percentage .numbers {
@@ -8187,9 +8373,11 @@ button.close {
 
 .radial-progress[data-progress="92"] .circle .mask.full,
 .radial-progress[data-progress="92"] .circle .fill {
+  -webkit-transform: rotate(165.6deg);
   transform: rotate(165.6deg); }
 
 .radial-progress[data-progress="92"] .circle .fill.fix {
+  -webkit-transform: rotate(331.2deg);
   transform: rotate(331.2deg); }
 
 .radial-progress[data-progress="92"] .inset .percentage .numbers {
@@ -8197,9 +8385,11 @@ button.close {
 
 .radial-progress[data-progress="93"] .circle .mask.full,
 .radial-progress[data-progress="93"] .circle .fill {
+  -webkit-transform: rotate(167.4deg);
   transform: rotate(167.4deg); }
 
 .radial-progress[data-progress="93"] .circle .fill.fix {
+  -webkit-transform: rotate(334.8deg);
   transform: rotate(334.8deg); }
 
 .radial-progress[data-progress="93"] .inset .percentage .numbers {
@@ -8207,9 +8397,11 @@ button.close {
 
 .radial-progress[data-progress="94"] .circle .mask.full,
 .radial-progress[data-progress="94"] .circle .fill {
+  -webkit-transform: rotate(169.2deg);
   transform: rotate(169.2deg); }
 
 .radial-progress[data-progress="94"] .circle .fill.fix {
+  -webkit-transform: rotate(338.4deg);
   transform: rotate(338.4deg); }
 
 .radial-progress[data-progress="94"] .inset .percentage .numbers {
@@ -8217,9 +8409,11 @@ button.close {
 
 .radial-progress[data-progress="95"] .circle .mask.full,
 .radial-progress[data-progress="95"] .circle .fill {
+  -webkit-transform: rotate(171deg);
   transform: rotate(171deg); }
 
 .radial-progress[data-progress="95"] .circle .fill.fix {
+  -webkit-transform: rotate(342deg);
   transform: rotate(342deg); }
 
 .radial-progress[data-progress="95"] .inset .percentage .numbers {
@@ -8227,9 +8421,11 @@ button.close {
 
 .radial-progress[data-progress="96"] .circle .mask.full,
 .radial-progress[data-progress="96"] .circle .fill {
+  -webkit-transform: rotate(172.8deg);
   transform: rotate(172.8deg); }
 
 .radial-progress[data-progress="96"] .circle .fill.fix {
+  -webkit-transform: rotate(345.6deg);
   transform: rotate(345.6deg); }
 
 .radial-progress[data-progress="96"] .inset .percentage .numbers {
@@ -8237,9 +8433,11 @@ button.close {
 
 .radial-progress[data-progress="97"] .circle .mask.full,
 .radial-progress[data-progress="97"] .circle .fill {
+  -webkit-transform: rotate(174.6deg);
   transform: rotate(174.6deg); }
 
 .radial-progress[data-progress="97"] .circle .fill.fix {
+  -webkit-transform: rotate(349.2deg);
   transform: rotate(349.2deg); }
 
 .radial-progress[data-progress="97"] .inset .percentage .numbers {
@@ -8247,9 +8445,11 @@ button.close {
 
 .radial-progress[data-progress="98"] .circle .mask.full,
 .radial-progress[data-progress="98"] .circle .fill {
+  -webkit-transform: rotate(176.4deg);
   transform: rotate(176.4deg); }
 
 .radial-progress[data-progress="98"] .circle .fill.fix {
+  -webkit-transform: rotate(352.8deg);
   transform: rotate(352.8deg); }
 
 .radial-progress[data-progress="98"] .inset .percentage .numbers {
@@ -8257,9 +8457,11 @@ button.close {
 
 .radial-progress[data-progress="99"] .circle .mask.full,
 .radial-progress[data-progress="99"] .circle .fill {
+  -webkit-transform: rotate(178.2deg);
   transform: rotate(178.2deg); }
 
 .radial-progress[data-progress="99"] .circle .fill.fix {
+  -webkit-transform: rotate(356.4deg);
   transform: rotate(356.4deg); }
 
 .radial-progress[data-progress="99"] .inset .percentage .numbers {
@@ -8267,9 +8469,11 @@ button.close {
 
 .radial-progress[data-progress="100"] .circle .mask.full,
 .radial-progress[data-progress="100"] .circle .fill {
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .radial-progress[data-progress="100"] .circle .fill.fix {
+  -webkit-transform: rotate(360deg);
   transform: rotate(360deg); }
 
 .radial-progress[data-progress="100"] .inset .percentage .numbers {
@@ -8293,6 +8497,7 @@ button.close {
       .footer-social a:hover, .footer-social a:active {
         text-decoration: none;
         color: #337ab7;
+        -webkit-transition: .4s;
         transition: .4s; }
 
 @font-face {
@@ -8578,6 +8783,12 @@ button.close {
 .icon-trophy:before {
   content: "\40"; }
 
+.icon-check:before {
+  content: "\5b"; }
+
+.icon-check-1:before {
+  content: "\5d"; }
+
 .cd-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
   width: 90%;
@@ -8669,6 +8880,7 @@ button.close {
         visibility: hidden; }
       .cssanimations .cd-timeline-img.bounce-in {
         visibility: visible;
+        -webkit-animation: cd-bounce-1 0.6s;
         animation: cd-bounce-1 0.6s; } }
 
 .cd-timeline-content {
@@ -8750,12 +8962,72 @@ button.close {
         visibility: hidden; }
       .cssanimations .cd-timeline-content.bounce-in {
         visibility: visible;
+        -webkit-animation: cd-bounce-2 0.6s;
         animation: cd-bounce-2 0.6s; } }
 
 @media only screen and (min-width: 1170px) {
   /* inverse bounce effect on even content blocks */
   .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+    -webkit-animation: cd-bounce-2-inverse 0.6s;
     animation: cd-bounce-2-inverse 0.6s; } }
+
+.btn-file {
+  position: relative;
+  overflow: hidden; }
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block; }
+
+#portfolio .portfolio {
+  margin-bottom: 50px; }
+  #portfolio .portfolio .title {
+    text-align: center;
+    margin-bottom: 10px; }
+  #portfolio .portfolio .features {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 20px; }
+    #portfolio .portfolio .features .feature {
+      display: inline-block;
+      text-wrap: avoid;
+      color: black;
+      background: #f7f7f7;
+      border: 1px solid #ebebeb;
+      padding: 5px 10px;
+      margin: 5px 3px; }
+      #portfolio .portfolio .features .feature .icon {
+        vertical-align: -2px;
+        color: #5cb85c;
+        padding-right: 10px; }
+  #portfolio .portfolio .image {
+    margin: 10px 0; }
+  #portfolio .portfolio .content {
+    margin: 10px 0; }
+  #portfolio .portfolio:nth-child(even) .image {
+    float: right; }
+  #portfolio .portfolio:nth-child(even) .content {
+    float: left; }
+  #portfolio .portfolio:nth-child(odd) .image {
+    float: left; }
+  #portfolio .portfolio:nth-child(odd) .content {
+    float: right; }
+  #portfolio .portfolio:after:before, #portfolio .portfolio:after:after {
+    content: " ";
+    display: table; }
+  #portfolio .portfolio:after:after {
+    clear: both; }
 
 /*----------------------------------*    Buttons
 \*----------------------------------*/
@@ -8772,6 +9044,7 @@ button.close {
   border: none;
   border-radius: 0;
   font-family: "Dosis";
+  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   /* Focus state shows only on mobile */
   /* Bordered button with transparent background */
@@ -8831,15 +9104,24 @@ button.close {
       border-right: .1em solid;
       white-space: nowrap;
       overflow: hidden;
+      -webkit-animation: typing 3s steps(24, end), blink-caret 0.5s step-end infinite alternate;
       animation: typing 3s steps(24, end), blink-caret 0.5s step-end infinite alternate; }
   .btn--text-white {
     color: #ffffff; }
   .btn span {
     vertical-align: middle; }
 
+@-webkit-keyframes typing {
+  from {
+    width: 0; } }
+
 @keyframes typing {
   from {
     width: 0; } }
+
+@-webkit-keyframes blink-caret {
+  50% {
+    border-color: transparent; } }
 
 @keyframes blink-caret {
   50% {

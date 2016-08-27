@@ -28,7 +28,7 @@
         </div>
         <div class='form-group'>
             {!! Form::label('content', 'Content') !!}
-            {!! Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'What do you want to tell me ;)']) !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'What do you want to tell me ;)', 'rows' => '4']) !!}
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn--bg-transparent btn--border-blue" value="Message me">

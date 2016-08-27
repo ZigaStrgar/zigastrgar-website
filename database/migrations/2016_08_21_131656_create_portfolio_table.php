@@ -17,7 +17,8 @@ class CreatePortfolioTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('features');
-            $table->string('link');
+            $table->string('link')->nullable();
+            $table->string('git')->nullable();
             $table->timestamps();
         });
     }

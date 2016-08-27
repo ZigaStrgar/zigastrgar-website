@@ -26,7 +26,7 @@ class PortfolioRequest extends FormRequest
         return [
             'title'   => 'required',
             'content' => 'required',
-            'image'   => 'file|image'
+            'image'   => 'file|image|mimes:jpeg,bmp,png,jpg'
         ];
     }
 }

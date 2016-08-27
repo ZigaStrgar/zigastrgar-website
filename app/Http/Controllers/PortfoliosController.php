@@ -43,10 +43,10 @@ class PortfoliosController extends Controller
     {
         $portfolio = Portfolio::create($request->all());
 
-        // TODO Add image
-        $portfolio->image()->create([ 'type' => 'portfolio' ]);
+        $path = $request->file('image')->store('public/images');
+        $portfolio->image()->create([ 'resource' => 'portfolio', 'path' => $path ]);
 
-        return redirect('portfolios');
+        return redirect('portfolio');
     }
 
     /**
@@ -76,9 +76,13 @@ class PortfoliosController extends Controller
         $portfolio = Portfolio::findOrFail($id);
         $portfolio->update($request->all());
 
-        // TODO IMAGE
+        if ( $request->hasFile('image') ) {
+            $portfolio->image->where('resource', 'portfolio')->update([
+                'path' => $request->file('image')->store('public/images')
+            ]);
+        }
 
-        return redirect('portfolios');
+        return redirect('portfolio');
     }
 
     /**
@@ -91,6 +95,7 @@ class PortfoliosController extends Controller
     public function destroy($id)
     {
         $portfolio = Portfolio::findOrFail($id);
+        $portfolio->image->where('resource', 'portfolio')->delete();
         $portfolio->delete();
 
         return "success";

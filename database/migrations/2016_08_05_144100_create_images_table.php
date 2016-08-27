@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->string('path');
             $table->integer('resource_id');
             $table->enum('resource', [ 'user', 'post', 'comment', 'portfolio' ])->default('post');
+            $table->timestamps();
         });
     }
 
