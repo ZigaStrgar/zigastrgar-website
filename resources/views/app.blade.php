@@ -29,6 +29,10 @@
         <a href="skype:titanus19921?call" class="icon icon-social-skype"></a>
     </div>
 </footer>
+@if(Auth::check())
+    {!! Form::open(['url' => 'logout', 'method' => 'POST', 'id' => 'logMeOut']) !!}
+    {!! Form::close() !!}
+@endif
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="/assets/js/main.js"></script>

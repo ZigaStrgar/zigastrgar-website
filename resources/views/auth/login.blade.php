@@ -6,25 +6,21 @@
 
 @section('content')
     <div class="col-sm-12 col-md-push-3 col-md-6 center-block">
-        <form method="POST" action="/auth/login">
-            {!! csrf_field() !!}
-            <div class="form-group">
-                <label>Email</label>
-                <input class="form-control" type="email" name="email" value="{{ old('email') }}">
-            </div>
-
-            <div class="form-group">
-                <label>Password</label>
-                <input class="form-control" type="password" name="password" id="password">
-            </div>
-
-            <div class="form-group">
-                <input checked type="checkbox" name="remember"> Remember Me
-            </div>
-
-            <div>
-                <button class="btn btn--bg-transparent btn--border-blue" type="submit">Login</button>
-            </div>
-        </form>
+        {!! Form::open(['url' => 'login', 'method' => 'POST']) !!}
+        <div class='form-group'>
+            {!! Form::label('email', 'Email') !!}
+            {!! Form::email('email', null, ['class' => 'form-control']) !!}
+        </div>
+        <div class='form-group'>
+            {!! Form::label('password', 'Password') !!}
+            {!! Form::password('password', ['class' => 'form-control']) !!}
+        </div>
+        <div class='form-group'>
+            <input checked type="checkbox" name="remember"> Remember Me
+        </div>
+        <div class="form-group">
+            <button class="btn btn--border-blue btn--bg-transparent" type="submit">Register</button>
+        </div>
+        {!! Form::close() !!}
     </div>
 @endsection

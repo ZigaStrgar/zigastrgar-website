@@ -14,9 +14,9 @@
                             <li class="text-center"><a href="{{ url('dashboard') }}">Dashboard</a></li>
                         @endif
                         <li class="text-center"><a href="{{ url('user') }}">{{ Auth::user()->name }}</a></li>
-                        <li class="text-center"><a href="{{ url('auth/logout') }}">Logout</a></li>
+                        <li class="text-center"><a onClick="logout()" href="#">Logout</a></li>
                     @else
-                        <li class="text-center"><a href="{{ url('auth/login') }}">Login</a></li>
+                        <li class="text-center"><a href="{{ url('login') }}">Login</a></li>
                     @endif
                 </ul>
             </nav>

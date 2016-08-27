@@ -1,8 +1,8 @@
-$(function() {
+$(function () {
     //mobile menu open
-    var btn=$('.header__btn');
-    var header=$('.header__links');
-    btn.click(function(e) {
+    var btn = $('.header__btn');
+    var header = $('.header__links');
+    btn.click(function (e) {
         e.preventDefault();
         header.toggleClass('open');
         btn.toggleClass('open');
@@ -18,3 +18,7 @@ $(function() {
     });
     //END TO TOP
 });
+
+function logout() {
+    $("#logMeOut").submit();
+}
