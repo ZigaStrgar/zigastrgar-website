@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <h2 class="text-center">You want to get in touch with me? <small>Feel free to use any contact method :)</small></h2>
+    <h2 class="text-center">You want to get in touch with me?
+        <small>Feel free to use any contact method :)</small>
+    </h2>
     <div class="col-xs-12 col-sm-4">
         <h3 class="page-header">My info</h3>
         <p>Žiga Strgar</p>
@@ -15,22 +17,22 @@
     </div>
     <div class="col-xs-12 col-sm-8">
         <h3 class="page-header">Message me</h3>
-        <form method="POST" action="sendMessage">
-            <div class="form-group">
-                <label for="name">Name & Surname</label>
-                <input type="text" id="name" class="form-control" name="name" placeholder="Tell me who you are, so I can address you properly">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" name="email" placeholder="How can I reach you back?">
-            </div>
-            <div class="form-group">
-                <label for="content">Content</label>
-                <textarea cols="4" class="form-control" id="content" placeholder="What do you want to tell me ;)"></textarea>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn--bg-transparent btn--border-blue" value="Message me">
-            </div>
-        </form>
+        {!! Form::open(['url' => 'sendMessage', 'method' => 'POST']) !!}
+        <div class='form-group'>
+            {!! Form::label('name', 'Name & Surname') !!}
+            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Tell me who you are, so I can address you properly']) !!}
+        </div>
+        <div class='form-group'>
+            {!! Form::label('email', 'Email') !!}
+            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'How can I reach you back?']) !!}
+        </div>
+        <div class='form-group'>
+            {!! Form::label('content', 'Content') !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'What do you want to tell me ;)']) !!}
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn--bg-transparent btn--border-blue" value="Message me">
+        </div>
+        {!! Form::close() !!}
     </div>
 @endsection
