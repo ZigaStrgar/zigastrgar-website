@@ -10,6 +10,6 @@ class Category extends Model
 
     public function skills()
     {
-        return $this->hasMany('App\Skill');
+        return $this->hasMany(Skill::class);
     }
 }

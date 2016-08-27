@@ -15,6 +15,6 @@ class Portfolio extends Model
 
     public function image()
     {
-        return $this->hasOne('App\Image')->where('type', 'portfolio')->get();
+        return $this->belongsTo(Image::class)->where('type', 'portfolio')->get();
     }
 }

@@ -35,7 +35,7 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        $tags = Tag::lists('name', 'id');
+        $tags = Tag::pluck('name', 'id');
 
         return view('articles.create', compact('tags'));
     }
@@ -50,7 +50,7 @@ class ArticlesController extends Controller
 
     public function edit($id)
     {
-        $tags = Tag::lists('name', 'id');
+        $tags = Tag::pluck('name', 'id');
         $post = Post::findOrFail($id);
 
         return view('articles.edit', compact('tags', 'post'));

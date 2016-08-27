@@ -8,21 +8,27 @@ class Image extends Model
 {
     protected $fillable = [
         'path',
-        'resource_id'
+        'resource_id',
+        'resource'
     ];
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo(User::class);
     }
 
     public function post()
     {
-        return $this->hasOne('App\Post');
+        return $this->belongsTo(Post::class);
     }
 
     public function comment()
     {
-        return $this->hasOne('App\Comment');
+        return $this->belongsTo(Comment::class);
+    }
+
+    public function portfolio()
+    {
+        return $this->belongsTo(Portfolio::class);
     }
 }

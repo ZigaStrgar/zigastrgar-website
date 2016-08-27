@@ -14,11 +14,11 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo(User::class);
     }
 
     public function post()
     {
-        return $this->hasOne('App\Post');
+        return $this->belongsTo(Post::class);
     }
 }

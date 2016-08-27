@@ -17,16 +17,16 @@ class Post extends Model
 
     public function user()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo(User::class);
     }
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tag', 'post_tag');
+        return $this->belongsToMany(Tag::class, 'post_tag');
     }
 
     public function getTagListAttribute()
     {
-        return $this->tags->lists('id')->toArray();
+        return $this->tags->pluck('id')->toArray();
     }
 }
