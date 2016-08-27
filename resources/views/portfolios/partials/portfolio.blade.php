@@ -11,7 +11,7 @@
         @if(strlen($portfolio->link) > 0)
             <a href="{{ $portfolio->link }}" target="_blank" rel="noopener noreferrer" class="btn btn--bg-transparent btn--border-blue">Visit live version</a>
         @endif
-        @if(strlen($portfolio->git) > 0 && Auth::user()->isAdmin())
+        @if(strlen($portfolio->git) > 0 && Auth::check() && Auth::user()->isAdmin())
             <a href="{{ $portfolio->git }}" target="_blank" rel="noopener noreferrer" class="btn btn--bg-transparent btn--border-blue">Visit git repository</a>
         @endif
     </div>
