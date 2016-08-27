@@ -16,7 +16,7 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->string('path');
             $table->integer('resource_id');
-            $table->enum('resource', [ 'user', 'post', 'comment' ])->nullable();
+            $table->enum('resource', [ 'user', 'post', 'comment', 'portfolio' ])->nullable();
         });
     }
 

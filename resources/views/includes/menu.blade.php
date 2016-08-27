@@ -4,8 +4,9 @@
             <nav class="flex flex--align-vertical">
                 <ul class="flex">
                     <li class="text-center"><a href="{{ url('/') }}">Home</a></li>
-                    <li class="text-center"><a href="{{ url('blog') }}">Blog</a></li>
+                    <li class="text-center"><a href="{{ url('biography') }}">Bio</a></li>
                     <li class="text-center"><a href="{{ url('skills') }}">Skills</a></li>
+                    <li class="text-center"><a href="{{ url('blog') }}">Blog</a></li>
                     <li class="text-center"><a href="{{ url('portfolio') }}">Portfolio</a></li>
                     <li class="text-center"><a href="{{ url('contact') }}">Contact</a></li>
                     @if(Auth::check())

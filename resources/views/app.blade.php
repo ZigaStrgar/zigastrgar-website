@@ -11,7 +11,7 @@
 <body>
 @include('includes.menu')
 @yield('header')
-<div class="container">
+<div class="container shadows">
     @include('errors.list')
     @yield('content')
 </div>

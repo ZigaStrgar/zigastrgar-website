@@ -12,7 +12,7 @@ class CreateExperiencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('experiences', function(Blueprint $table) {
+        Schema::create('biographies', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('subtitle')->nullable();
@@ -30,6 +30,6 @@ class CreateExperiencesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('experiences');
+        Schema::drop('biographies');
     }
 }

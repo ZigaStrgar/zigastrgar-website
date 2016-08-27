@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    @include('headers.medium', ['title' => 'Add blog post'])
+    @include('headers.medium', ['title' => 'Edit blog post'])
 @endsection
 
 @section('content')
