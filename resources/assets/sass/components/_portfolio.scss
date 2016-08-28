@@ -51,3 +51,40 @@
     }
   }
 }
+
+.mac{
+  position: relative;
+  width: 100%;
+  &__content{
+    position:absolute;
+    top: 8.5%;
+    left:15.6%;
+    width: 69%;
+    max-height: 80%;
+    overflow-y: auto;
+    height: 100%;
+    img{
+      margin-right: -8px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.mobile{
+  position: relative;
+  &__content{
+    position:absolute;
+    top: 13.45%;
+    left:14.28%;
+    width: 70.8%;
+    height: 71.5%;
+    overflow-y: auto;
+    img{
+      margin-right: -8px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

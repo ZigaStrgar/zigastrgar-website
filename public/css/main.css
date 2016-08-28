@@ -9029,6 +9029,36 @@ button.close {
   #portfolio .portfolio:after:after {
     clear: both; }
 
+.mac {
+  position: relative;
+  width: 100%; }
+  .mac__content {
+    position: absolute;
+    top: 8.5%;
+    left: 15.6%;
+    width: 69%;
+    max-height: 80%;
+    overflow-y: auto;
+    height: 100%; }
+    .mac__content img {
+      margin-right: -8px; }
+    .mac__content::-webkit-scrollbar {
+      display: none; }
+
+.mobile {
+  position: relative; }
+  .mobile__content {
+    position: absolute;
+    top: 13.45%;
+    left: 14.28%;
+    width: 70.8%;
+    height: 71.5%;
+    overflow-y: auto; }
+    .mobile__content img {
+      margin-right: -8px; }
+    .mobile__content::-webkit-scrollbar {
+      display: none; }
+
 /*----------------------------------*    Buttons
 \*----------------------------------*/
 .btn {
