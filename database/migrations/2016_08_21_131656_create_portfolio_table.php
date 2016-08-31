@@ -19,6 +19,7 @@ class CreatePortfolioTable extends Migration
             $table->string('features');
             $table->string('link')->nullable();
             $table->string('git')->nullable();
+            $table->boolean('mobile')->default(false);
             $table->timestamps();
         });
     }

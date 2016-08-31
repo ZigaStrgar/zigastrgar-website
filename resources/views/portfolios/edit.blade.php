@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    {!! Form::model($portfolio, ['action' => ['PortfolioController', $portfolio->id], 'method' => 'PATCH', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::model($portfolio, ['action' => ['PortfoliosController@update', $portfolio->id], 'method' => 'PATCH', 'enctype' => 'multipart/form-data']) !!}
     @include('portfolios.partials.form', ['color' => 'blue', 'submitText' => 'Edit portfolio'])
     {!! Form::close() !!}
 @endsection

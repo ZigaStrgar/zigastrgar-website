@@ -23,6 +23,7 @@ class Portfolio extends Model
         'features',
         'link',
         'git',
+        'mobile'
     ];
 
     public function image()
@@ -32,9 +33,15 @@ class Portfolio extends Model
 
     public function getImagePathAttribute()
     {
-        $path = $this->image->where('resource', 'portfolio')->where('resource_id', $this->id)->first()->path;
-        $path = explode("/", $path);
+        if(is_null($this->image)){
+            return "";
+        }
 
-        return end($path);
+        $image = $this->image->where('resource', 'portfolio')->where('resource_id', $this->id)->first();
+        $path  = $image->path;
+        $path  = explode("/", $path);
+        $path  = end($path);
+
+        return $path;
     }
 }

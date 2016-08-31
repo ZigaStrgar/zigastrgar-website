@@ -32,9 +32,11 @@
     }
     &--border-danger{
         border: solid 2px $btn-danger-bg;
+        color: $btn-danger-bg;
     }
     &--border-success{
         border: solid 2px $btn-success-bg;
+        color: $btn-success-bg;
     }
     /* Floating button - usually with icon inside */
     &--round {

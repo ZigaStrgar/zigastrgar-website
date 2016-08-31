@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PortfolioRequest;
+use App\Image;
 use App\Portfolio;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,11 @@ use App\Http\Requests;
 class PortfoliosController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', [ 'except' => [ 'index' ] ]);
+        $this->middleware('admin', [ 'except' => [ 'index' ] ]);
+    }
 
     /**
      * Display a listing of the resource.
@@ -45,8 +51,10 @@ class PortfoliosController extends Controller
     {
         $portfolio = Portfolio::create($request->all());
 
-        $path = $request->file('image')->store('public/images');
-        $portfolio->image()->create([ 'resource' => 'portfolio', 'path' => $path ]);
+        if ( $request->hasFile('image') ) {
+            $path = $request->file('image')->store('public/images');
+            $portfolio->image()->create([ 'resource' => 'portfolio', 'path' => $path ]);
+        }
 
         return redirect('portfolio');
     }
@@ -76,12 +84,22 @@ class PortfoliosController extends Controller
     public function update(PortfolioRequest $request, $id)
     {
         $portfolio = Portfolio::findOrFail($id);
-        $portfolio->update($request->all());
+        $data      =
+            ( $request->has('mobile') ) ? $request->all() : array_merge($request->all(), [ 'mobile' => false ]);
+
+        $portfolio->update($data);
 
         if ( $request->hasFile('image') ) {
-            $portfolio->image->where('resource', 'portfolio')->update([
-                'path' => $request->file('image')->store('public/images')
-            ]);
+            if ( is_null($portfolio->image) ) {
+                $portfolio->image->create([
+                    'path'     => $request->file('image')->store('public/images'),
+                    'resource' => 'portfolio'
+                ]);
+            } else {
+                $portfolio->image->where('resource', 'portfolio')->update([
+                    'path' => $request->file('image')->store('public/images')
+                ]);
+            }
         }
 
         return redirect('portfolio');
@@ -97,7 +115,11 @@ class PortfoliosController extends Controller
     public function destroy($id)
     {
         $portfolio = Portfolio::findOrFail($id);
-        $portfolio->image->where('resource', 'portfolio')->delete();
+
+        if ( !is_null($portfolio->image) ) {
+            $portfolio->image->where('resource', 'portfolio')->where('resource_id', $id)->delete();
+        }
+
         $portfolio->delete();
 
         return "success";

@@ -262,7 +262,7 @@ nav ul {
     background-size: cover; }
 
 .shadows {
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.27), inset 0px 0px 40px rgba(0, 0, 0, 0.06); }
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.27), inset 0px 0px 4px rgba(0, 0, 0, 0.06); }
 
 /*----------------------------------*		Form
 \*----------------------------------*/
@@ -9034,9 +9034,9 @@ button.close {
   width: 100%; }
   .mac__content {
     position: absolute;
-    top: 8.5%;
-    left: 15.6%;
-    width: 69%;
+    top: 8.4%;
+    left: 15.5%;
+    width: 69.1%;
     max-height: 80%;
     overflow-y: auto;
     height: 100%; }
@@ -9089,9 +9089,11 @@ button.close {
   .btn--border-blue {
     border: solid 2px #2082d1; }
   .btn--border-danger {
-    border: solid 2px #d9534f; }
+    border: solid 2px #d9534f;
+    color: #d9534f; }
   .btn--border-success {
-    border: solid 2px #5cb85c; }
+    border: solid 2px #5cb85c;
+    color: #5cb85c; }
   .btn--round {
     border-radius: 50%; }
   .btn--small {

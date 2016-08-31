@@ -20,6 +20,9 @@
     {!! Form::text('git', null, ['class' => 'form-control']) !!}
 </div>
 <div class='form-group'>
+    <strong>Is this a mobile project</strong> {!! Form::checkbox('mobile', 1, null) !!}
+</div>
+<div class='form-group'>
     {!! Form::label('image', 'Project image') !!}
     <br />
     <label class="btn btn-file btn--border-blue btn--bg-transparent">
