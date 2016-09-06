@@ -20,7 +20,7 @@
                href="{{ action('ArticlesController@show', ['id' => $post->slug]) }}">Read more ...</a>
             @if(Auth::check() && Auth::user()->isAdmin())
                 <a class="btn btn--border-blue btn--bg-transparent"
-                   href="{{ action('ArticlesController@edit', ['id' => $post->id]) }}">Edit article</a>
+                   href="{{ action('ArticlesController@edit', ['id' => $post->slug]) }}">Edit article</a>
                 <a class="btn btn--border-danger btn--bg-danger"
                    onClick="deleteArticle({{ $post->id }});">Delete article</a>
             @endif

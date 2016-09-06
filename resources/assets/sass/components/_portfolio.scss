@@ -76,9 +76,26 @@
   &__content{
     position:absolute;
     top: 13.45%;
-    left:14.28%;
-    width: 70.8%;
-    height: 71.5%;
+    left: 10.9%;
+    width: 40.8%;
+    height: 71.9%;
+    overflow-y: auto;
+    img{
+      margin-right: -8px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.landscape{
+  position: relative;
+  &__content{
+    position:absolute;
+    top: 13.9%;
+    left: 14.9%;
+    width: 68.8%;
+    height: 71.9%;
     overflow-y: auto;
     img{
       margin-right: -8px;

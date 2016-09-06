@@ -52,7 +52,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $tags = Tag::pluck('name', 'id');
-        $post = Post::findOrFail($id);
+        $post = Post::where('slug', $id)->first();
 
         return view('articles.edit', compact('tags', 'post'));
     }

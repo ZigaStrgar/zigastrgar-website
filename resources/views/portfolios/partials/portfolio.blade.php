@@ -7,6 +7,9 @@
         <div class="col-xs-12 col-sm-6 image mac">
             @if($portfolio->mobile)
                 <?php $type = "mobile" ?>
+                @if($portfolio->landscape)
+                        <?php $type = "landscape" ?>
+                @endif
             @else
                 <?php $type = "mac" ?>
             @endif
