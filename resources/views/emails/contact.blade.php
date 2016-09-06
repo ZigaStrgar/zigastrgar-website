@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<h2>You've recieved a message from: <strong>{{ $data['name'] }}</strong></h2>
-<p>Reply to: {{ $data['email'] }}</p>
+<h2>You've received a message from: <strong>{{ $name }}</strong></h2>
+<p>Reply to: {{ $email }}</p>
 <p>
-    {{ $data['content'] }}
+    {{ $content }}
 </p>
 </body>
 </html>

@@ -7,6 +7,7 @@ use App\Mail\ContactMe;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
@@ -22,9 +23,9 @@ class PagesController extends Controller
 
     public function sendMessage(ContactRequest $request)
     {
-        $mail = Mail::to("me@zigastrgar.com")->send(new ContactMe($request));
+        Mail::to("me@zigastrgar.com")->send(new ContactMe($request));
 
-        dd($mail);
+        return view('pages.contact');
     }
 
     public function portfolio()

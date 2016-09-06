@@ -31,6 +31,10 @@ class ContactMe extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.contact');
+        return $this->subject('Contact from web page')->view('emails.contact')->with([
+            'name'    => $this->data['name'],
+            'email'   => $this->data['email'],
+            'content' => $this->data['content']
+        ]);
     }
 }
