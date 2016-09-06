@@ -6,6 +6,10 @@
     {!! Form::label('content', 'Blog content') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control', 'id' => 'content']) !!}
 </div>
+<div class='form-group'>
+    {!! Form::label('excerpt', 'Blog excerpt') !!}
+    {!! Form::textarea('excerpt', null, ['class' => 'form-control', 'id' => 'excerpt']) !!}
+</div>
 <div class="form-group">
     {!! Form::label('tag_list') !!}
     {!! Form::select('tag_list[]', $tags, null, ['multiple', 'class' => 'form-control tags-select']) !!}

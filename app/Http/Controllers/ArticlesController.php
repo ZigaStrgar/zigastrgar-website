@@ -43,9 +43,7 @@ class ArticlesController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        $article = Auth::user()->posts()->create(array_merge($request->all(), [
-            'excerpt' => Str::words(strip_tags($request->input('content')), $words = 50, $end = "...")
-        ]));
+        $article = Auth::user()->posts()->create($request->all());
         $this->syncTags($article, $request->input('tag_list'));
 
         return redirect('blog');
@@ -63,9 +61,7 @@ class ArticlesController extends Controller
     {
         $article = Post::findOrFail($id);
 
-        $article->update(array_merge($request->all(), [
-            'excerpt' => Str::words(strip_tags($request->input('content')), $words = 50, $end = "...")
-        ]));
+        $article->update($request->all());
 
         $this->syncTags($article, $request->input('tag_list'));
 

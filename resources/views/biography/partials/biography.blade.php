@@ -18,7 +18,7 @@
     <div class="cd-timeline-content">
         <h2>{{ $biography->title }} @if(!is_null($biography->subtitle))
                 <small>{{ $biography->subtitle }}</small>@endif</h2>
-        <p>{{ $biography->content }}</p>
+        {!! $biography->content !!}
         <span class="cd-date">{{ $biography->date }}</span>
         @if(Auth::check() && Auth::user()->isAdmin())
             <div class="pull-right">
