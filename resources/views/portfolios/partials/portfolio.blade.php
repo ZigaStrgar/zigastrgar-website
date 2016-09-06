@@ -18,7 +18,7 @@
         </div>
     @endif
     <div class="col-xs-12 @if(strlen($portfolio->imagePath) > 0) col-sm-6 @endif content">
-        <p>{{ $portfolio->content }}</p>
+        {!! $portfolio->content !!}
         @if(strlen($portfolio->link) > 0)
             <a href="{{ $portfolio->link }}" target="_blank" rel="noopener noreferrer"
                class="btn btn--bg-transparent btn--border-blue">Visit live version</a>

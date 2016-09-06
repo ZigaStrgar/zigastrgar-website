@@ -7168,34 +7168,38 @@ button.close {
       margin-top: -30px;
       opacity: 0; }
 
-.article-property {
-  padding-top: 15px;
-  color: gray; }
-
-.article-date {
+.article h2 {
   text-align: center;
-  margin-left: -15px;
-  margin-top: -15px;
-  padding: 5px 0;
-  background: #2082d1;
-  color: white;
-  position: absolute;
-  width: 100%; }
+  margin-bottom: 10px; }
 
-.article-tags {
-  position: relative;
-  padding-top: 25px;
-  margin-left: -17px;
-  width: 100%; }
-  .article-tags .btn {
-    display: inline-block;
-    margin: 2px 2px;
-    padding: 3px 10px; }
+.article-properties {
+  text-align: center;
+  margin-bottom: 20px; }
+  .article-properties .article-property {
+    color: #bfbfbf;
+    font-size: .97em; }
+    .article-properties .article-property:not(:last-child):after {
+      content: '\00a0\00a0•\00a0\00a0'; }
+    .article-properties .article-property a {
+      color: #bfbfbf;
+      text-decoration: none;
+      border-bottom: 1px dashed #bfbfbf; }
+      .article-properties .article-property a:hover {
+        color: #23527c;
+        border-bottom: 1px dashed #23527c; }
 
-.article-description {
-  font-size: 1.3em;
-  margin-top: 20px;
-  line-height: 1.4em; }
+.article-content {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  font-family: "Open Sans"; }
+
+.article-action {
+  float: right; }
+  .article-action:after:before, .article-action:after:after {
+    content: " ";
+    display: table; }
+  .article-action:after:after {
+    clear: both; }
 
 .radial-progress {
   margin: 20px auto;
@@ -8788,6 +8792,15 @@ button.close {
 
 .icon-check-1:before {
   content: "\5d"; }
+
+.icon-android-time:before {
+  content: "\5e"; }
+
+.icon-tags:before {
+  content: "\5f"; }
+
+.icon-user:before {
+  content: "\60"; }
 
 .cd-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */

@@ -2,14 +2,30 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use Sluggable;
+    use SoftDeletes;
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('latest', function(Builder $query) {
+            return $query->orderBy('created_at', 'DESC');
+        });
+    }
+
     protected $fillable = [
         'title',
         'content',
-        'views',
+        'excerpt',
+        'slug',
         'user_id'
     ];
 
@@ -28,5 +44,14 @@ class Post extends Model
     public function getTagListAttribute()
     {
         return $this->tags->pluck('id')->toArray();
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

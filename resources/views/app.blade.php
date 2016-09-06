@@ -18,14 +18,21 @@
 <footer class="footer flex flex--column text-center flex--center flex--justify-center">
     <p>Žiga Strgar © 2016&nbsp;&nbsp;•&nbsp;&nbsp;Design by: FRIThemes</p>
     <div class="footer-social">
-        <a href="https://www.facebook.com/ziga.strgar" target="_blank" class="icon icon-social-facebook"></a>
-        <a href="https://twitter.com/ZigaStrgar" class="icon icon-social-twitter"></a>
-        <a href="https://github.com/ZigaStrgar" target="_blank" class="icon icon-social-github"></a>
-        <a href="https://bitbucket.org/zigastrgar/" target="_blank" class="icon icon-bitbucket"></a>
-        <a href="https://www.linkedin.com/in/zigastrgar" class="icon icon-social-linkedin"></a>
-        <a href="https://www.snapchat.com/add/zigastrgar" target="_blank" class="icon icon-social-snapchat"></a>
-        <a href="https://instagram.com/strgarziga" target="_blank" class="icon icon-social-instagram"></a>
-        <a href="https://plus.google.com/116225034462413260807" target="_blank" class="icon icon-social-googleplus"></a>
+        <a href="https://www.facebook.com/ziga.strgar" rel="noreferrer noopener" target="_blank"
+           class="icon icon-social-facebook"></a>
+        <a href="https://twitter.com/ZigaStrgar" rel="noreferrer noopener" class="icon icon-social-twitter"></a>
+        <a href="https://github.com/ZigaStrgar" rel="noreferrer noopener" target="_blank"
+           class="icon icon-social-github"></a>
+        <a href="https://bitbucket.org/zigastrgar/" rel="noreferrer noopener" target="_blank"
+           class="icon icon-bitbucket"></a>
+        <a href="https://www.linkedin.com/in/zigastrgar" rel="noreferrer noopener"
+           class="icon icon-social-linkedin"></a>
+        <a href="https://www.snapchat.com/add/zigastrgar" rel="noreferrer noopener" target="_blank"
+           class="icon icon-social-snapchat"></a>
+        <a href="https://instagram.com/strgarziga" rel="noreferrer noopener" target="_blank"
+           class="icon icon-social-instagram"></a>
+        <a href="https://plus.google.com/116225034462413260807" rel="noreferrer noopener" target="_blank"
+           class="icon icon-social-googleplus"></a>
         <a href="skype:titanus19921?call" class="icon icon-social-skype"></a>
     </div>
 </footer>

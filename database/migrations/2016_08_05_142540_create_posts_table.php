@@ -16,10 +16,11 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
-            $table->integer('views')->unsigned()->default(0);
+            $table->text('excerpt');
+            $table->string('slug')->unique();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes();
         });
     }
 

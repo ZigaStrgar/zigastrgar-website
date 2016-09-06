@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Portfolio extends Model
 {
+    use SoftDeletes;
 
     protected static function boot()
     {
@@ -33,7 +35,7 @@ class Portfolio extends Model
 
     public function getImagePathAttribute()
     {
-        if(is_null($this->image)){
+        if ( is_null($this->image) ) {
             return "";
         }
 

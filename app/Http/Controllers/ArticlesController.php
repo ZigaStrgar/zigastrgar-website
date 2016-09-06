@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArticlesController extends Controller
 {
@@ -28,7 +29,7 @@ class ArticlesController extends Controller
 
     public function show($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::where('slug', $id)->first();
 
         return view('articles.article', compact('post'));
     }
@@ -42,7 +43,9 @@ class ArticlesController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        $article = Auth::user()->posts()->create($request->all());
+        $article = Auth::user()->posts()->create(array_merge($request->all(), [
+            'excerpt' => Str::words(strip_tags($request->input('content')), $words = 50, $end = "...")
+        ]));
         $this->syncTags($article, $request->input('tag_list'));
 
         return redirect('blog');
@@ -58,10 +61,15 @@ class ArticlesController extends Controller
 
     public function update(ArticleRequest $request, $id)
     {
-        $article = Post::findOrFail($id)->update($request->all());
+        $article = Post::findOrFail($id);
+
+        $article->update(array_merge($request->all(), [
+            'excerpt' => Str::words(strip_tags($request->input('content')), $words = 50, $end = "...")
+        ]));
+
         $this->syncTags($article, $request->input('tag_list'));
 
-        return redirect('blog/' . $article->id);
+        return redirect('blog/' . $article->slug);
     }
 
     public function destroy($id)

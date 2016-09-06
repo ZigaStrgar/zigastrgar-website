@@ -15,11 +15,11 @@ Route::group([ 'middleware' => [ 'auth' ] ], function() {
     Route::get('dashboard', 'PagesController@dashboard');
 });
 
-Route::get('images/{filename}', function ($filename)
-{
+Route::get('images/{filename}', function($filename) {
     $path = storage_path() . '/app/public/images/' . $filename;
 
-    if(!File::exists($path)) abort(404, "not there!");
+    if ( !File::exists($path) )
+        abort(404, "I'm not here!");
     $file = File::get($path);
     $type = File::mimeType($path);
 

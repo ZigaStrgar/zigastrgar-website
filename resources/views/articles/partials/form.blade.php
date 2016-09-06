@@ -21,4 +21,5 @@
             tags: true
         })
     </script>
+    @include('includes.tinymce')
 @endsection

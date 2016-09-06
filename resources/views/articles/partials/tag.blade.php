@@ -1,1 +1,4 @@
-<a class="btn btn--border-blue btn--bg-transparent" href="{{ url('tags/'.$tag->name) }}">{{ $tag->name }}</a>
+<a href="{{ url('tags/'.$tag->name) }}">{{ $tag->name }}</a>
+@if($loop->last)
+,
+@endif

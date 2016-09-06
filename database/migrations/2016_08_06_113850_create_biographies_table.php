@@ -20,6 +20,7 @@ class CreateBiographiesTable extends Migration
             $table->text('content');
             $table->enum('type', [ 'education', 'work', 'accomplishments' ])->default('work');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

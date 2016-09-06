@@ -21,6 +21,7 @@ class CreatePortfolioTable extends Migration
             $table->string('git')->nullable();
             $table->boolean('mobile')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

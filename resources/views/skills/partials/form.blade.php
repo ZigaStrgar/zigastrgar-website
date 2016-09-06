@@ -13,3 +13,7 @@
 <div class="from-group">
     {!! Form::submit($submitText, ['class' => "btn btn--bg-$color btn--border-$color"]) !!}
 </div>
+
+@section('scripts')
+    @include('includes.tinymce')
+@endsection

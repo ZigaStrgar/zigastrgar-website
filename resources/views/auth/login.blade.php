@@ -19,7 +19,7 @@
             <input checked type="checkbox" name="remember"> Remember Me
         </div>
         <div class="form-group">
-            <button class="btn btn--border-blue btn--bg-transparent" type="submit">Register</button>
+            <button class="btn btn--border-blue btn--bg-transparent" type="submit">Login</button>
         </div>
         {!! Form::close() !!}
     </div>
