@@ -24,7 +24,7 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'                 => 'required|alpha',
+            'name'                 => 'required|string',
             'email'                => 'required|email',
             'content'              => 'required|alpha_dash',
             'g-recaptcha-response' => 'required|captcha'
