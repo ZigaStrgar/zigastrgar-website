@@ -9,6 +9,7 @@
         ],
         toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code codesample',
         rel_list: [
+            {title: 'None', value: ''},
             {title: 'New window', value: 'noreffer noopener'},
         ],
         codesample_languages: [
