@@ -2,6 +2,7 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('contact', 'PagesController@contact');
+Route::post('sendMessage', 'PagesController@sendMessage');
 
 Auth::routes();
 

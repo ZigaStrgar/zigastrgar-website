@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,6 +17,11 @@ class PagesController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    public function sendMessage(ContactRequest $request)
+    {
+        dd("sending message");
     }
 
     public function portfolio()
