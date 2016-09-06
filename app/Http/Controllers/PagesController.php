@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Mail\ContactMe;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -21,7 +22,9 @@ class PagesController extends Controller
 
     public function sendMessage(ContactRequest $request)
     {
-        dd("sending message");
+        $mail = Mail::to("me@zigastrgar.com")->send(new ContactMe($request));
+
+        dd($mail);
     }
 
     public function portfolio()
