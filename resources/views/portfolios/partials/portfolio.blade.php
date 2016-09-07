@@ -8,7 +8,7 @@
             @if($portfolio->mobile)
                 <?php $type = "mobile" ?>
                 @if($portfolio->landscape)
-                        <?php $type = "landscape" ?>
+                    <?php $type = "landscape" ?>
                 @endif
             @else
                 <?php $type = "mac" ?>

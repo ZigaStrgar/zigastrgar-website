@@ -13,6 +13,7 @@
 @yield('header')
 <div class="container shadows">
     @include('errors.list')
+    @include('flash::message')
     @yield('content')
 </div>
 <footer class="footer flex flex--column text-center flex--center flex--justify-center">

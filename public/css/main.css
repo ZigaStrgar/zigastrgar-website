@@ -9086,6 +9086,9 @@ button.close {
     .landscape__content::-webkit-scrollbar {
       display: none; }
 
+#comments .comment .user-avatar {
+  border-radius: 50%; }
+
 /*----------------------------------*    Buttons
 \*----------------------------------*/
 .btn {

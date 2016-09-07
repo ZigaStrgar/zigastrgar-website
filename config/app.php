@@ -169,6 +169,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
         //
 
         /*

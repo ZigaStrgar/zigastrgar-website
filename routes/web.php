@@ -11,6 +11,7 @@ Route::resource('skills', 'SkillsController');
 Route::resource('categories', 'CategoriesController'); // TODO Implement the other two views also
 Route::resource('biography', 'BiographyController', [ 'except' => [ 'show' ] ]);
 Route::resource('portfolio', 'PortfoliosController', [ 'except' => [ 'show' ] ]);
+Route::resource('comments', 'CommentsController', [ 'except' => [ 'show', 'index', 'create' ] ]);
 
 Route::group([ 'middleware' => [ 'auth' ] ], function() {
     Route::get('dashboard', 'PagesController@dashboard');
