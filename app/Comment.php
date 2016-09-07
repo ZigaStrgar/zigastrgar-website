@@ -2,12 +2,22 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
     use SoftDeletes;
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('oreder', function(Builder $builder) {
+            return $builder->orderBy('created_at', 'DESC');
+        });
+    }
 
     protected $fillable = [
         'content',

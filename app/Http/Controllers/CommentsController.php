@@ -26,10 +26,9 @@ class CommentsController extends Controller
     public function store(CommentRequest $request)
     {
         // TODO Check for valid slug
-        $post = Post::where('slug', $request->input('slug'))->first();
+        $post = Post::where('slug', $request->input('slug'))->firstOrFail();
 
-        $comment = $request->user()->comments()->create($request->all())->associate($post);
-        $comment->save();
+        $request->user()->comments()->create(array_merge($request->all(), [ 'post_id' => $post->id ]));
 
         return redirect('blog/' . $post->slug);
     }

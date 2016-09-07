@@ -9086,8 +9086,11 @@ button.close {
     .landscape__content::-webkit-scrollbar {
       display: none; }
 
-#comments .comment .user-avatar {
-  border-radius: 50%; }
+#comments .comment {
+  min-height: 135px;
+  margin-bottom: 15px; }
+  #comments .comment .user-avatar {
+    border-radius: 50%; }
 
 /*----------------------------------*    Buttons
 \*----------------------------------*/

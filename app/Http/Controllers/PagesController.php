@@ -24,7 +24,7 @@ class PagesController extends Controller
     public function sendMessage(ContactRequest $request)
     {
         Mail::to("me@zigastrgar.com")->send(new ContactMe($request));
-        flash('Message sent successfully', 'success');
+        flash('Message sent <strong>successfully</strong>', 'success');
 
         return view('pages.contact');
     }
