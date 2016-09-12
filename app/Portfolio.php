@@ -5,19 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ZigaStrgar\Orderable\Orderable;
 
 class Portfolio extends Model
 {
     use SoftDeletes;
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope('order', function(Builder $builder) {
-            return $builder->getQuery()->orderBy('created_at', 'DESC');
-        });
-    }
+    use Orderable;
 
     protected $fillable = [
         'title',
@@ -45,5 +38,12 @@ class Portfolio extends Model
         $path  = end($path);
 
         return $path;
+    }
+
+    public function orderable()
+    {
+        return [
+            'created_at' => 'DESC'
+        ];
     }
 }

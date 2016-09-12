@@ -6,20 +6,13 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ZigaStrgar\Orderable\Orderable;
 
 class Post extends Model
 {
     use Sluggable;
     use SoftDeletes;
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope('latest', function(Builder $query) {
-            return $query->orderBy('created_at', 'DESC');
-        });
-    }
+    use Orderable;
 
     protected $fillable = [
         'title',
@@ -58,5 +51,10 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function orderable()
+    {
+        return [ 'created_at' => 'DESC' ];
     }
 }

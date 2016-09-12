@@ -23,12 +23,13 @@
       }
     }
   }
-  &-content {
-    font-size: 1.2em;
-    line-height: 1.4em;
-    font-family: $font-secondary;
+  &-content, .article-text {
+    font-size: 1.2em !important;
+    line-height: 1.4em !important;
+    font-family: $font-secondary !important;
   }
   &-action{
+    margin-top: 10px;
     float:right;
     &:after{
       @include clearfix;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Http\Requests\CommentRequest;
 use App\Post;
+use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
@@ -55,22 +56,37 @@ class CommentsController extends Controller
      */
     public function update(CommentRequest $request, $id)
     {
-        // TODO Check for user id
+        $comment = Comment::findOrFail($id);
 
-        $comment = Comment::findOrFail($id)->update($request->all());
+        if ( $comment->user->id == $request->user()->id || $request->user()->isAdmin() ) {
+            $comment->update($request->all());
 
-        return redirect('blog/' . $comment->post->slug);
+            return "success";
+        }
+
+        return "This comment does not belong to you!";
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int                     $id
+     *
+     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        // TODO Check for user id
+        $comment = Comment::findOrFail($id);
+
+        if ( $comment->user->id == $request->user()->id || $request->user()->isAdmin() ) {
+            $comment->delete();
+
+            return "success";
+        }
+
+        return "This comment does not belong to you!";
     }
 }

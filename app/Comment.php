@@ -2,22 +2,14 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ZigaStrgar\Orderable\Orderable;
 
 class Comment extends Model
 {
     use SoftDeletes;
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope('oreder', function(Builder $builder) {
-            return $builder->orderBy('created_at', 'DESC');
-        });
-    }
+    use Orderable;
 
     protected $fillable = [
         'content',
@@ -33,5 +25,10 @@ class Comment extends Model
     public function post()
     {
         return $this->belongsTo(Post::class);
+    }
+
+    public function orderable()
+    {
+        return [ 'created_at' => 'DESC' ];
     }
 }

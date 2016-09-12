@@ -7188,12 +7188,13 @@ button.close {
         color: #23527c;
         border-bottom: 1px dashed #23527c; }
 
-.article-content {
-  font-size: 1.2em;
-  line-height: 1.4em;
-  font-family: "Open Sans"; }
+.article-content, .article .article-text {
+  font-size: 1.2em !important;
+  line-height: 1.4em !important;
+  font-family: "Open Sans" !important; }
 
 .article-action {
+  margin-top: 10px;
   float: right; }
   .article-action:after:before, .article-action:after:after {
     content: " ";
@@ -9091,6 +9092,8 @@ button.close {
   margin-bottom: 15px; }
   #comments .comment .user-avatar {
     border-radius: 50%; }
+  #comments .comment .actions {
+    float: right; }
 
 /*----------------------------------*    Buttons
 \*----------------------------------*/
