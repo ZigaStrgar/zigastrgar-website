@@ -39,6 +39,11 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function clicks()
+    {
+        return $this->hasMany(Click::class);
+    }
+
     public function getTagListAttribute()
     {
         return $this->tags->pluck('id')->toArray();

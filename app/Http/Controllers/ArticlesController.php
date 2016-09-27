@@ -30,6 +30,11 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $post = Post::where('slug', $id)->first();
+        $post->clicks()->create([
+            'ip'      => $_SERVER['REMOTE_ADDR'],
+            'agent'   => $_SERVER['HTTP_USER_AGENT'],
+            'user_id' => ( Auth::check() ) ? Auth::user()->id : 0
+        ]);
 
         return view('articles.article', compact('post'));
     }

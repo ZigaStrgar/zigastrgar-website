@@ -18,7 +18,9 @@ class Portfolio extends Model
         'features',
         'link',
         'git',
-        'mobile'
+        'mobile',
+        'landscape',
+        'order'
     ];
 
     public function image()
@@ -43,6 +45,7 @@ class Portfolio extends Model
     public function orderable()
     {
         return [
+            'order'      => 'DESC',
             'created_at' => 'DESC'
         ];
     }

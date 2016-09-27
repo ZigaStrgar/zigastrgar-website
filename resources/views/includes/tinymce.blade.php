@@ -33,6 +33,9 @@
             {text: 'Apache config', value: 'apacheconf'},
             {text: 'HTTP', value: 'http'},
             {text: 'Markdown', value: 'markdown'},
+        ],
+        removeformat: [
+            {selector: 'p', attributes: ['style'], split: true, expand: false, deep: true},
         ]
     });
 </script>

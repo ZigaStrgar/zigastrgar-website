@@ -19,12 +19,19 @@
     {!! Form::label('git', 'Project git') !!}
     {!! Form::text('git', null, ['class' => 'form-control']) !!}
 </div>
+<?php
+$value = isset( $portfolio ) ? $portfolio->order : 1;
+?>
+<div class="form-group">
+    <label>Project importance</label>
+    <input type="range" name="order" value="{{ $value }}" min="1" max="5">
+</div>
 <div class='form-group'>
     <strong>Is this a mobile project</strong> {!! Form::checkbox('mobile', 1, null) !!}
 </div>
 <div class='form-group'>
     {!! Form::label('image', 'Project image') !!}
-    <br />
+    <br/>
     <label class="btn btn-file btn--border-blue btn--bg-transparent">
         Browse {!! Form::file('image') !!}
     </label>
@@ -34,5 +41,7 @@
 </div>
 
 @section('scripts')
+    <script src="{{ asset('vendor/rangeslider/rangeSlider.js') }}"></script>
     @include('includes.tinymce')
+    @include('includes.slider')
 @endsection

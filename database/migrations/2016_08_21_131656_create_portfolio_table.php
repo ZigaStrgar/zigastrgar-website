@@ -21,7 +21,7 @@ class CreatePortfolioTable extends Migration
             $table->string('git')->nullable();
             $table->boolean('mobile')->default(false);
             $table->boolean('landscape')->default(false);
-            $table->integer('order')->unsinged()->default(10);
+            $table->integer('order')->unsinged()->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

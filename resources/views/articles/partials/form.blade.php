@@ -6,6 +6,10 @@
     {!! Form::label('content', 'Blog content') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control', 'id' => 'content']) !!}
 </div>
+<div class="form-group">
+    {!! Form::label('content', 'Blog content') !!}
+    <textarea id="content" name="content">{!! htmlentities($post->content) !!}</textarea>
+</div>
 <div class='form-group'>
     {!! Form::label('excerpt', 'Blog excerpt') !!}
     {!! Form::textarea('excerpt', null, ['class' => 'form-control', 'id' => 'excerpt']) !!}
