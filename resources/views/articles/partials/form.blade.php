@@ -2,10 +2,6 @@
     {!! Form::label('title', 'Blog title') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
-<div class='form-group'>
-    {!! Form::label('content', 'Blog content') !!}
-    {!! Form::textarea('content', null, ['class' => 'form-control', 'id' => 'content']) !!}
-</div>
 <div class="form-group">
     {!! Form::label('content', 'Blog content') !!}
     <textarea id="content" name="content">{!! htmlentities($post->content) !!}</textarea>
