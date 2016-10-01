@@ -10,10 +10,6 @@
                     <li class="text-center"><a href="{{ url('portfolio') }}">Portfolio</a></li>
                     <li class="text-center"><a href="{{ url('contact') }}">Contact</a></li>
                     @if(Auth::check())
-                        @if(Auth::user()->isAdmin())
-                            <li class="text-center"><a href="{{ url('dashboard') }}">Dashboard</a></li>
-                        @endif
-                        <li class="text-center"><a href="{{ url('user') }}">{{ Auth::user()->name }}</a></li>
                         <li class="text-center"><a onClick="logout()" href="#">Logout</a></li>
                     @else
                         <li class="text-center"><a href="{{ url('login') }}">Login</a></li>

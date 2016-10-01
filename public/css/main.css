@@ -7265,7 +7265,7 @@ button.close {
   text-align: center;
   font-weight: 500;
   font-size: 22px;
-  color: #ccc; }
+  color: #999; }
 
 .radial-progress:hover .inset .percentage .numbers span {
   -webkit-transition: .35s;
