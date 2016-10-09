@@ -52,18 +52,18 @@
   }
 }
 
-.mac{
+.mac {
   position: relative;
   width: 100%;
-  &__content{
-    position:absolute;
+  &__content {
+    position: absolute;
     top: 8.4%;
-    left:15.5%;
+    left: 15.5%;
     width: 69.1%;
     max-height: 80%;
     overflow-y: auto;
     height: 100%;
-    img{
+    img {
       margin-right: -8px;
     }
     &::-webkit-scrollbar {
@@ -71,34 +71,50 @@
     }
   }
 }
-.mobile{
+
+.mobile {
   position: relative;
-  &__content{
-    position:absolute;
-    top: 13.45%;
-    left: 10.9%;
-    width: 40.8%;
-    height: 71.9%;
-    overflow-y: auto;
-    img{
-      margin-right: -8px;
+  @media (min-width: 430px) {
+    &__content {
+      position: absolute;
+      top: 13.5%;
+      left: 60px;
+      width: 223px;
+      height:100%;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
-    &::-webkit-scrollbar {
-      display: none;
+  }
+  @media (max-width: 430px) {
+    &__content {
+      position: absolute;
+      top: 13.5%;
+      left: 17%;
+      width: 65%;
+      height:75%;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }
-.landscape{
+
+.landscape {
   position: relative;
-  &__content{
-    position:absolute;
+  &__content {
+    position: absolute;
     top: 13.9%;
     left: 14.9%;
     width: 68.8%;
     height: 71.9%;
     overflow-y: auto;
-    img{
-      margin-right: -8px;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
     &::-webkit-scrollbar {
       display: none;

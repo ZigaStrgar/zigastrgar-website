@@ -173,6 +173,7 @@ $background: #efefef;
   @include border-radius;
   padding: 1em;
   @include clearfix;
+  @include font-size(20px);
 
   h2 {
     margin-top: -5px;

@@ -8902,7 +8902,9 @@ button.close {
   margin-left: 60px;
   background: #f7f7f7;
   border-radius: 0.25em;
-  padding: 1em; }
+  padding: 1em;
+  font-size: 20px;
+  font-size: 1.25rem; }
   .cd-timeline-content:before, .cd-timeline-content:after {
     content: " ";
     display: table; }
@@ -9061,17 +9063,26 @@ button.close {
 
 .mobile {
   position: relative; }
-  .mobile__content {
-    position: absolute;
-    top: 13.45%;
-    left: 10.9%;
-    width: 40.8%;
-    height: 71.9%;
-    overflow-y: auto; }
-    .mobile__content img {
-      margin-right: -8px; }
-    .mobile__content::-webkit-scrollbar {
-      display: none; }
+  @media (min-width: 430px) {
+    .mobile__content {
+      position: absolute;
+      top: 13.5%;
+      left: 60px;
+      width: 223px;
+      height: 100%;
+      overflow-y: auto; }
+      .mobile__content::-webkit-scrollbar {
+        display: none; } }
+  @media (max-width: 430px) {
+    .mobile__content {
+      position: absolute;
+      top: 13.5%;
+      left: 17%;
+      width: 65%;
+      height: 75%;
+      overflow-y: auto; }
+      .mobile__content::-webkit-scrollbar {
+        display: none; } }
 
 .landscape {
   position: relative; }
@@ -9083,7 +9094,9 @@ button.close {
     height: 71.9%;
     overflow-y: auto; }
     .landscape__content img {
-      margin-right: -8px; }
+      display: block;
+      width: 100%;
+      height: auto; }
     .landscape__content::-webkit-scrollbar {
       display: none; }
 
