@@ -4,11 +4,19 @@
 </div>
 <div class="form-group">
     {!! Form::label('content', 'Blog content') !!}
+    <?php if(isset( $post )){ ?>
     <textarea id="content" name="content">{!! htmlentities($post->content) !!}</textarea>
+    <?php } else { ?>
+    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+    <?php } ?>
 </div>
 <div class='form-group'>
     {!! Form::label('excerpt', 'Blog excerpt') !!}
     {!! Form::textarea('excerpt', null, ['class' => 'form-control', 'id' => 'excerpt']) !!}
+</div>
+<div class="from-group">
+    {!! Form::label('publish_at', 'Publish at:') !!}
+    {!! Form::date('publish_at', null) !!}
 </div>
 <div class="form-group">
     {!! Form::label('tag_list') !!}

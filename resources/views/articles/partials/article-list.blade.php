@@ -4,11 +4,13 @@
         <span class="article-property" data-toggle="tooltip"
               title="{{ $post->created_at->format("d. m. Y H:i") }}"
               data-placement="bottom">{{ $post->created_at->diffForHumans() }}</span>
-        <span class="article-property">
+        @if(count($post->tags) > 0)
+            <span class="article-property">
             @foreach($post->tags as $tag)
-                <a href="{{ url('tags/'.$tag->name) }}">{{ $tag->name }}</a>@unless($loop->last), @endunless
-            @endforeach
-        </span>
+                    <a href="{{ url('tags/'.$tag->name) }}">{{ $tag->name }}</a>@unless($loop->last), @endunless
+                @endforeach
+            </span>
+        @endif
         <span class="article-property">Comments: {{ count($post->comments) }}</span>
         <span class="article-property"><a
                     href="{{ url("user/{$post->user->name}") }}">{{ $post->user->name }}</a></span>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -19,10 +20,11 @@ class Post extends Model
         'content',
         'excerpt',
         'slug',
-        'user_id'
+        'user_id',
+        'publish_at'
     ];
 
-    protected $dates = [ 'deleted_at' ];
+    protected $dates = [ 'deleted_at', 'publish_at', 'created_at', 'updated_at' ];
 
     public function user()
     {
@@ -61,5 +63,15 @@ class Post extends Model
     public function orderable()
     {
         return [ 'created_at' => 'DESC' ];
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('publish_at', '<=', Carbon::now());
+    }
+
+    public function scopeOnlyThis($query, $ids)
+    {
+        return $query->whereRaw('id IN (' . implode(',', $ids) . ')');
     }
 }

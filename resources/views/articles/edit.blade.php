@@ -10,6 +10,6 @@
 
 @section('content')
     {!! Form::model($post, ['action' => ['ArticlesController@update', $post->id], 'method' => 'PATCH']) !!}
-    @include('articles.partials.form', ['submitText' => 'Edit post', 'color' => 'blue'])
+    @include('articles.partials.form', ['submitText' => 'Edit post', 'color' => 'blue', 'post' => $post])
     {!! Form::close() !!}
 @endsection
