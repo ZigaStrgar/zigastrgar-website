@@ -22,7 +22,7 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::published()->get();
 
         return view('articles.index', compact('posts'));
     }

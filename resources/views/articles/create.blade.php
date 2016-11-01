@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('css')
-    <link rel="stylesheet" href="/assets/css/select2.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/select2.min.css" type="text/css"/>
 @endsection
 
 @section('header')
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    {!! Form::open(['url' => 'blog']) !!}
+    {!! Form::model($post = new \App\Post(), ['url' => 'blog']) !!}
     @include('articles.partials.form', ['submitText' => 'Add post', 'color' => 'success'])
     {!! Form::close() !!}
 @endsection

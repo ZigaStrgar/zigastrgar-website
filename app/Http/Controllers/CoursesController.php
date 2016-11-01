@@ -20,9 +20,7 @@ class CoursesController extends Controller
 
         $posts_ids = $tag->posts->pluck('id')->toArray();
 
-        $courses = Post::whereRaw('id IN (' . implode(",", $posts_ids) . ')')->get();
-
-        dd($courses);
+        $courses = Post::published()->whereRaw('id IN (' . implode(",", $posts_ids) . ')')->get();
 
         return view('courses.index', compact('courses'));
     }

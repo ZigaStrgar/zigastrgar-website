@@ -4,7 +4,6 @@ namespace App;
 
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use ZigaStrgar\Orderable\Orderable;
@@ -51,6 +50,15 @@ class Post extends Model
         return $this->tags->pluck('id')->toArray();
     }
 
+    public function getPublishedAtAttribute($date){
+        return Carbon::parse($date)->format('Y-m-d');
+    }
+
+    public function setPublishAtAttribute($date)
+    {
+        $this->attributes['publish_at'] = Carbon::parse($date);
+    }
+
     public function sluggable()
     {
         return [
@@ -68,10 +76,5 @@ class Post extends Model
     public function scopePublished($query)
     {
         return $query->where('publish_at', '<=', Carbon::now());
-    }
-
-    public function scopeOnlyThis($query, $ids)
-    {
-        return $query->whereRaw('id IN (' . implode(',', $ids) . ')');
     }
 }

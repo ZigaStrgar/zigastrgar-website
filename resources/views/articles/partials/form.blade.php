@@ -16,7 +16,7 @@
 </div>
 <div class="from-group">
     {!! Form::label('publish_at', 'Publish at:') !!}
-    {!! Form::date('publish_at', null) !!}
+    {!! Form::date('publish_at', $post->publish_at) !!}
 </div>
 <div class="form-group">
     {!! Form::label('tag_list') !!}
