@@ -170,6 +170,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         //
 
         /*
@@ -230,6 +231,7 @@ return [
         'Form'         => Collective\Html\FormFacade::class,
         'Html'         => Collective\Html\HtmlFacade::class,
         'NoCaptcha'    => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+        'Image'        => Intervention\Image\Facades\Image::class,
 
     ],
 

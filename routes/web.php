@@ -19,15 +19,11 @@ Route::group([ 'middleware' => [ 'auth' ] ], function() {
 });
 
 Route::get('images/{filename}', function($filename) {
-    $path = storage_path() . '/app/public/images/' . $filename;
+    return Image::make(storage_path() . '/app/public/images/' . $filename)->response();
+});
 
-    if ( !File::exists($path) )
-        abort(404, "I'm not here!");
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
+Route::get('attachment/{filename}', function($filename) {
+    $extension = collect(explode(".", $filename))->last();
+    $name = \App\Attachment::where('path', 'LIKE', '%'.$filename)->first()->name;
+    return response()->download(storage_path('/app/public/attachments/' . $filename), $name.".".$extension);
 });

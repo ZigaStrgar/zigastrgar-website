@@ -24,10 +24,12 @@ class BiographyRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'date' => 'required',
-            'content' => 'required',
-            'type' => 'in:work,accomplishments,education'
+            'title'           => 'required',
+            'date'            => 'required',
+            'content'         => 'required',
+            'type'            => 'in:work,accomplishments,education',
+            'attachment'      => 'file|mimes:pdf,docx,doc',
+            'attachment_name' => 'required_if:attachment,string'
         ];
     }
 }

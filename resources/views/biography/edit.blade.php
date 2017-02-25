@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    {!! Form::model($biography, ['action' => ['BiographyController@update', $biography->id], 'method' => 'PATCH']) !!}
+    {!! Form::model($biography, ['action' => ['BiographyController@update', $biography->id], 'method' => 'PATCH', 'files' => true]) !!}
     @include('biography.partials.form', ['submitText' => 'Edit biography', 'color' => 'blue'])
     {!! Form::close() !!}
 @endsection

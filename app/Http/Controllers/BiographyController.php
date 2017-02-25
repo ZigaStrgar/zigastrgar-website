@@ -48,7 +48,12 @@ class BiographyController extends Controller
      */
     public function store(BiographyRequest $request)
     {
-        Biography::create($request->all());
+        $biography = Biography::create($request->all());
+
+        if ( $request->hasFile('attachment') ) {
+            $path = $request->file('attachment')->store('public/attachments');
+            $biography->attachment()->create([ 'name' => $request->input('attachment_name'), 'path' => $path ]);
+        }
 
         return redirect('biography');
     }
@@ -80,19 +85,36 @@ class BiographyController extends Controller
         $biography = Biography::findOrFail($id);
         $biography->update($request->all());
 
+        if ( $request->hasFile('attachment') ) {
+            if ( !$biography->hasAttachment() ) {
+                $biography->attachment()->create([
+                    'path' => $request->file('attachment')->store('public/attachments'),
+                    'name' => $request->input('attachment_name')
+                ]);
+            } else {
+                $biography->attachment()->update([
+                    'path' => $request->file('attachment')->store('public/attachments'),
+                    'name' => $request->input('attachment_name')
+                ]);
+            }
+        }
+
         return redirect('biography');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param \App\Biography $biography
      *
      * @return \Illuminate\Http\Response
+     * @internal param int $id
+     *
      */
-    public function destroy($id)
+    public function destroy(Biography $biography)
     {
-        Biography::findOrFail($id)->delete();
+        $biography->attachment()->delete();
+        $biography->delete();
 
         return "success";
     }

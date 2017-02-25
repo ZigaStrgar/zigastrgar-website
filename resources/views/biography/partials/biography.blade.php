@@ -20,12 +20,17 @@
                 <small>{{ $biography->subtitle }}</small>@endif</h2>
         {!! $biography->content !!}
         <span class="cd-date">{{ $biography->date }}</span>
-        @if(Auth::check() && Auth::user()->isAdmin())
-            <div class="pull-right">
+        <div class="pull-right">
+            @if($biography->hasAttachment())
+                <a class="cd-read-more"
+                   href="{{ url('attachment/'.$biography->attachmentPath) }}">{{ $biography->attachment->name }}</a>
+            @endif
+            @if(Auth::check() && Auth::user()->isAdmin())
                 <a class="cd-read-more" href="{{ action('BiographyController@edit', $biography->id) }}">Edit</a>
-                <a class="cd-read-more cd-read-more-danger pointer" onClick="deleteBio({{ $biography->id }});">Delete</a>
-            </div>
-        @endif
+                <a class="cd-read-more cd-read-more-danger pointer"
+                   onClick="deleteBio({{ $biography->id }});">Delete</a>
+            @endif
+        </div>
     </div>
 </div>
 

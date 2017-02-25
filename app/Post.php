@@ -13,6 +13,7 @@ class Post extends Model
     use Sluggable;
     use SoftDeletes;
     use Orderable;
+    use Attachable;
 
     protected $fillable = [
         'title',

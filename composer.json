@@ -15,7 +15,8 @@
     "anhskohbo/no-captcha": "^2.1",
     "guzzlehttp/guzzle": "^6.2",
     "laracasts/flash": "^2.0",
-    "zigastrgar/orderable": "^1.0"
+    "zigastrgar/orderable": "^1.0",
+    "intervention/image": "^2.3"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

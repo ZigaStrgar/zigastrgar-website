@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    {!! Form::open(['url' => 'biography']) !!}
+    {!! Form::open(['url' => 'biography', 'files' => true]) !!}
     @include('biography.partials.form', ['submitText' => 'Add biography', 'color' => 'success'])
     {!! Form::close() !!}
 @endsection

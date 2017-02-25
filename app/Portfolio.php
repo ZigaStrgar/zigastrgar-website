@@ -9,7 +9,7 @@ use ZigaStrgar\Orderable\Orderable;
 
 class Portfolio extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Attachable;
     use Orderable;
 
     protected $fillable = [
