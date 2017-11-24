@@ -3,7 +3,7 @@
     <div class="col-xs-12 features">
         @each('portfolios.partials.feature', explode(",", $portfolio->features), 'feature')
     </div>
-    @if(strlen($portfolio->imagePath) > 0)
+    @if($portfolio->image->exists())
         <div class="col-xs-12 col-sm-6 image mac">
             @if($portfolio->mobile)
                 <?php $type = "mobile" ?>
