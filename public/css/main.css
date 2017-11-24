@@ -9323,7 +9323,7 @@ input[type="range"]:focus + .rangeSlider .rangeSlider__handle {
 }
 
 .tag::before {
-  background: #2082D1;
+  background: #fff;
   border-radius: 10px;
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
   content: '';
@@ -9335,9 +9335,9 @@ input[type="range"]:focus + .rangeSlider .rangeSlider__handle {
 }
 
 .tag::after {
-  background: #2082D1;
+  background: #fff;
   border-bottom: 13px solid transparent;
-  border-left: 10px solid #eee;
+  border-left: 10px solid #2082D1;
   border-top: 13px solid transparent;
   content: '';
   position: absolute;
