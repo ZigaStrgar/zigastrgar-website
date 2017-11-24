@@ -91,7 +91,7 @@ class PortfoliosController extends Controller
 
         if ( $request->hasFile('image') ) {
             if ( is_null($portfolio->image) ) {
-                $portfolio->image->create([
+                $portfolio->image()->create([
                     'path'     => $request->file('image')->store('images', ['disk' => 'public']),
                     'resource' => 'portfolio'
                 ]);
