@@ -3,7 +3,7 @@
     <div class="col-xs-12 features">
         @each('portfolios.partials.feature', explode(",", $portfolio->features), 'feature')
     </div>
-    @if(is_null($portfolio->image))
+    @if(!is_null($portfolio->image))
         <div class="col-xs-12 col-sm-6 image mac">
             @if($portfolio->mobile)
                 <?php $type = "mobile" ?>
@@ -20,7 +20,7 @@
             </div>
         </div>
     @endif
-    <div class="col-xs-12 @if(strlen($portfolio->image->path) > 0) col-sm-6 @endif content">
+    <div class="col-xs-12 @if(!is_null($portfolio->image)) col-sm-6 @endif content">
         {!! $portfolio->content !!}
         @if(strlen($portfolio->link) > 0)
             <a href="{{ $portfolio->link }}" target="_blank" rel="noopener noreferrer"
