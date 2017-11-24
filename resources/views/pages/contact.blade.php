@@ -11,7 +11,6 @@
     <div class="col-xs-12 col-sm-4">
         <h3 class="page-header">My info</h3>
         <p>Žiga Strgar</p>
-        <p>Ter 69, 3333 Ljubno ob Savinji</p>
         <p>+386 41-202/710</p>
         <p><a href="mailto:me@zigastrgar.com">me@zigastrgar.com</a></p>
     </div>

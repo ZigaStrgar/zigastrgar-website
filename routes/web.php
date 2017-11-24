@@ -1,18 +1,19 @@
 <?php
 
 Route::get('/', 'PagesController@index');
+Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::get('contact', 'PagesController@contact');
 Route::post('sendMessage', 'PagesController@sendMessage');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
 
-Auth::routes();
-
-Route::resource('blog', 'ArticlesController');
+//Route::resource('blog', 'ArticlesController');
 Route::resource('skills', 'SkillsController');
 Route::resource('categories', 'CategoriesController'); // TODO Implement the other two views also
 Route::resource('biography', 'BiographyController', [ 'except' => [ 'show' ] ]);
 Route::resource('portfolio', 'PortfoliosController', [ 'except' => [ 'show' ] ]);
-Route::resource('comments', 'CommentsController', [ 'except' => [ 'show', 'index', 'create' ] ]);
-Route::resource('courses', 'CoursesController', [ 'only' => [ 'index', 'show' ] ]);
+//Route::resource('comments', 'CommentsController', [ 'except' => [ 'show', 'index', 'create' ] ]);
+//Route::resource('courses', 'CoursesController', [ 'only' => [ 'index', 'show' ] ]);
 
 Route::group([ 'middleware' => [ 'auth' ] ], function() {
     Route::get('dashboard', 'PagesController@dashboard');
