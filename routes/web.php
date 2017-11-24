@@ -19,10 +19,6 @@ Route::group([ 'middleware' => [ 'auth' ] ], function() {
     Route::get('dashboard', 'PagesController@dashboard');
 });
 
-Route::get('images/{filename}', function($filename) {
-    return Image::make(storage_path('app/public/images/' . $filename))->response();
-});
-
 Route::get('attachment/{filename}', function($filename) {
     $extension = collect(explode(".", $filename))->last();
     $name      = \App\Attachment::where('path', 'LIKE', '%' . $filename)->first()->name;
