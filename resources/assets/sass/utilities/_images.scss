@@ -145,11 +145,13 @@
 }
 
 .profile-image{
+  background: url('../assets/img/profile.png') no-repeat center top;
+  background-size: cover;
   border-radius: 100%;
 }
 
 .main-profile-image{
+  margin: 0 auto;
   height: 160px;
   width: 160px;
-  margin: 0 auto;
 }

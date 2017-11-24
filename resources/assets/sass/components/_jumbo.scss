@@ -1,7 +1,7 @@
 .jumbo {
     height: 50vh;
     background-size: cover;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover.jpg") no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover_2.jpg") no-repeat center center;
     @include transition(.3s ease-out);
     h1{
         text-transform: capitalize;
@@ -50,4 +50,26 @@
             opacity: 0;
         }
     }
+}
+
+
+#background {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/cover_2.jpg") no-repeat bottom fixed;
+    background-size: cover;
+}
+
+.background--large{
+    height: 65vh;
+}
+
+.background--medium{
+    height: 30vh;
+}
+
+.background--small{
+    height: 19vh;
+}
+
+.background--article{
+    height: 30vh;
 }

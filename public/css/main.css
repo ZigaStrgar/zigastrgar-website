@@ -532,12 +532,14 @@ input[type=checkbox] {
     transform: translateY(-150%); }
 
 .profile-image {
+  background: url("../assets/img/profile.png") no-repeat center top;
+  background-size: cover;
   border-radius: 100%; }
 
 .main-profile-image {
+  margin: 0 auto;
   height: 160px;
-  width: 160px;
-  margin: 0 auto; }
+  width: 160px; }
 
 /*----------------------------------*    Spacings
 \*----------------------------------*/
@@ -7126,8 +7128,8 @@ button.close {
 .jumbo {
   height: 50vh;
   background-size: cover;
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover.jpg") no-repeat center center;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover.jpg") no-repeat center center;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover_2.jpg") no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/cover_2.jpg") no-repeat center center;
   -webkit-transition: 0.3s ease-out;
   transition: 0.3s ease-out; }
   .jumbo h1 {
@@ -7167,6 +7169,23 @@ button.close {
       visibility: hidden;
       margin-top: -30px;
       opacity: 0; }
+
+#background {
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/cover_2.jpg") no-repeat bottom fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../assets/img/cover_2.jpg") no-repeat bottom fixed;
+  background-size: cover; }
+
+.background--large {
+  height: 65vh; }
+
+.background--medium {
+  height: 30vh; }
+
+.background--small {
+  height: 19vh; }
+
+.background--article {
+  height: 30vh; }
 
 .article h2 {
   text-align: center;

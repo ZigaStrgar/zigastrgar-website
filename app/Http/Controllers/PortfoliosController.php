@@ -96,7 +96,7 @@ class PortfoliosController extends Controller
                     'resource' => 'portfolio'
                 ]);
             } else {
-                $portfolio->image->where('resource', 'portfolio')->update([
+                $portfolio->image->update([
                     'path' => $request->file('image')->store('public/images')
                 ]);
             }

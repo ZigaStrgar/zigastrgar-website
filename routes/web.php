@@ -19,11 +19,12 @@ Route::group([ 'middleware' => [ 'auth' ] ], function() {
 });
 
 Route::get('images/{filename}', function($filename) {
-    return Image::make(storage_path() . '/app/public/images/' . $filename)->response();
+    return Image::make(storage_path('app/public/images/' . $filename))->response();
 });
 
 Route::get('attachment/{filename}', function($filename) {
     $extension = collect(explode(".", $filename))->last();
-    $name = \App\Attachment::where('path', 'LIKE', '%'.$filename)->first()->name;
-    return response()->download(storage_path('/app/public/attachments/' . $filename), $name.".".$extension);
+    $name      = \App\Attachment::where('path', 'LIKE', '%' . $filename)->first()->name;
+
+    return response()->download(storage_path('/app/public/attachments/' . $filename), $name . "." . $extension);
 });
