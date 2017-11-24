@@ -17,7 +17,7 @@
     @yield('content')
 </div>
 <footer class="footer flex flex--column text-center flex--center flex--justify-center">
-    <p>Žiga Strgar © 2016&nbsp;&nbsp;•&nbsp;&nbsp;Design by: FRIThemes</p>
+    <p>Žiga Strgar © 2017&nbsp;&nbsp;•&nbsp;&nbsp;Design by: FRIThemes</p>
     <div class="footer-social">
         <a href="https://www.facebook.com/ziga.strgar" rel="noreferrer noopener" target="_blank"
            class="icon icon-social-facebook"></a>
