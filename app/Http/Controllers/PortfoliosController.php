@@ -52,7 +52,7 @@ class PortfoliosController extends Controller
         $portfolio = Portfolio::create($request->all());
 
         if ( $request->hasFile('image') ) {
-            $path = $request->file('image')->store('public/images');
+            $path = $request->file('image')->storePublicly('images');
             $portfolio->image()->create([ 'resource' => 'portfolio', 'path' => $path ]);
         }
 
@@ -92,12 +92,12 @@ class PortfoliosController extends Controller
         if ( $request->hasFile('image') ) {
             if ( is_null($portfolio->image) ) {
                 $portfolio->image->create([
-                    'path'     => $request->file('image')->store('public/images'),
+                    'path'     => $request->file('image')->storePublicly('images'),
                     'resource' => 'portfolio'
                 ]);
             } else {
                 $portfolio->image->update([
-                    'path' => $request->file('image')->store('public/images')
+                    'path' => $request->file('image')->storePublicly('images')
                 ]);
             }
         }
