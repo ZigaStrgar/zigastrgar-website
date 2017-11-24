@@ -15,12 +15,12 @@
             @endif
             <img src="/assets/img/{{ $type }}.png">
             <div class="{{ $type }}__content">
-                <img src="{{ url("images/".$portfolio->imagePath) }}" alt="{{ $portfolio->title }}"
+                <img src="{{ asset("storage/".$portfolio->image->path) }}" alt="{{ $portfolio->title }}"
                      class="img-responsive">
             </div>
         </div>
     @endif
-    <div class="col-xs-12 @if(strlen($portfolio->imagePath) > 0) col-sm-6 @endif content">
+    <div class="col-xs-12 @if(strlen($portfolio->image->path) > 0) col-sm-6 @endif content">
         {!! $portfolio->content !!}
         @if(strlen($portfolio->link) > 0)
             <a href="{{ $portfolio->link }}" target="_blank" rel="noopener noreferrer"
