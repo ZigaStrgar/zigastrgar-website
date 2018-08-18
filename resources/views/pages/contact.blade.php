@@ -12,7 +12,7 @@
         <h3 class="page-header">My info</h3>
         <p>Žiga Strgar</p>
         <p>+386 41-202/710</p>
-        <p><a href="mailto:me@zigastrgar.com">me@zigastrgar.com</a></p>
+        <p><a href="mailto:ziga.strgar@gmail.com">ziga.strgra@gmail.com</a></p>
     </div>
     <div class="col-xs-12 col-sm-8">
         <h3 class="page-header">Message me</h3>
