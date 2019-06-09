@@ -5,9 +5,8 @@
 @endsection
 
 @section('content')
-    <h1 class="page-header text-center">So who am I?</h1>
-    <p class="text-center h3"><strong>I am Žiga Strgar. Student at faculty of computer science and informatics in
-            Ljubljana, Slovenia.</strong></p>
+    <h1 class="page-header text-center">So, who am I?</h1>
+    <p class="text-center h3"><strong>I am Žiga Strgar. Freelancer, web enthusiast, loves to work on projects with deeper connotation.</strong></p>
     <p class="article-content mt20">Yeah well that statement above is <b>100%</b> correct but I think I'm so much more
         than <i>"just"</i> that. Yes my passion is web development and solving problems but underneath all of that I'm a
         regular boy finding his relaxation in reading all kinds of books (usually non-fiction ones), TV shows and of
@@ -35,6 +34,11 @@
         application, nothing is published on AppStore so far. As desktop languages I'm referring to Java and C#, C# is
         still from my high school years, but Java is more of a recent thing as we do all the assignments for faculty in
         it. Lately I'm getting my hands dirty with Python in the world of Data Mining as part of the faculty curriculum.
+    </p>
+    <p class="article-content mt20">
+        Recently my professional life is covered with Node.JS development which is quite similar to Laravel but,
+        different :) And my perosnal life is filled with learning French. Oui, Française. Out of all languages.
+        It's my passion to learn French and someday live for a bit on the southern beaches of France.
     </p>
     <p class="article-content mt20">
         On my programming bucket list are still this languages: SmallTalk, Go, Ruby on Rails.
