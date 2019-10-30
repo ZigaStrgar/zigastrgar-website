@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Tag;
 
-
 class CoursesController extends Controller
 {
 

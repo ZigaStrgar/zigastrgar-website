@@ -16,7 +16,7 @@ class checkIfIsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if ( $request->user()->isAdmin() ) {
+        if ($request->user()->isAdmin()) {
             return $next($request);
         }
 

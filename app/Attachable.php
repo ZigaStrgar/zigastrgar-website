@@ -21,6 +21,6 @@ trait Attachable
 
     public function getAttachmentNameAttribute()
     {
-        return ( $this->hasAttachment() ) ? $this->attachment->name : "";
+        return ($this->hasAttachment()) ? $this->attachment->name : "";
     }
 }

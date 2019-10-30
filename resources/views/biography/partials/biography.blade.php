@@ -1,7 +1,7 @@
 <div class="cd-timeline-block" @if(Auth::check() && Auth::user()->isAdmin())data-bio="{{ $biography->id }}"@endif>
     <div class="cd-timeline-img cd-{{ $biography->type }}">
         <?php
-        switch ( $biography->type ) {
+        switch ($biography->type) {
             case "work":
                 $icon = "building-o";
                 break;

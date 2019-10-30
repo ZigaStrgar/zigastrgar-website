@@ -20,7 +20,7 @@
     {!! Form::text('git', null, ['class' => 'form-control']) !!}
 </div>
 <?php
-$value = isset( $portfolio ) ? $portfolio->order : 1;
+$value = isset($portfolio) ? $portfolio->order : 1;
 ?>
 <div class="form-group">
     <label>Project importance</label>

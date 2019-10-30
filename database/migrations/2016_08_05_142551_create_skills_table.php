@@ -12,7 +12,7 @@ class CreateSkillsTable extends Migration
      */
     public function up()
     {
-        Schema::create('skills', function(Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('percentage');
@@ -30,7 +30,7 @@ class CreateSkillsTable extends Migration
      */
     public function down()
     {
-        Schema::table('skills', function(Blueprint $table) {
+        Schema::table('skills', function (Blueprint $table) {
             $table->dropForeign('skills_category_id_foreign');
         });
 

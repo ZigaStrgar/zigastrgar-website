@@ -13,7 +13,6 @@ use Illuminate\Support\Str;
 
 class ArticlesController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('admin', [ 'except' => [ 'index', 'show' ] ]);
@@ -33,7 +32,7 @@ class ArticlesController extends Controller
         $post->clicks()->create([
             'ip'      => $_SERVER['REMOTE_ADDR'],
             'agent'   => $_SERVER['HTTP_USER_AGENT'],
-            'user_id' => ( Auth::check() ) ? Auth::user()->id : 0
+            'user_id' => (Auth::check()) ? Auth::user()->id : 0
         ]);
 
         return view('articles.article', compact('post'));
@@ -82,8 +81,8 @@ class ArticlesController extends Controller
 
     private function syncTags(Post $article, array $tags)
     {
-        foreach ( $tags as $tag ) {
-            if ( is_numeric($tag) ) {
+        foreach ($tags as $tag) {
+            if (is_numeric($tag)) {
                 $ids[] = $tag;
             } else {
                 $tag   = Tag::firstOrCreate([ 'name' => $tag ]);

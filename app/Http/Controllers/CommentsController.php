@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth', [ 'except' => [ 'index', 'show', 'create' ] ]);
@@ -58,14 +57,13 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
-        if ( $comment->user->id == $request->user()->id || $request->user()->isAdmin() ) {
+        if ($comment->user->id == $request->user()->id || $request->user()->isAdmin()) {
             $comment->update($request->all());
 
             return "success";
         }
 
         return "This comment does not belong to you!";
-
     }
 
     /**
@@ -81,7 +79,7 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
-        if ( $comment->user->id == $request->user()->id || $request->user()->isAdmin() ) {
+        if ($comment->user->id == $request->user()->id || $request->user()->isAdmin()) {
             $comment->delete();
 
             return "success";

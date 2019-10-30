@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('content', 'Blog content') !!}
-    <?php if(isset( $post )){ ?>
+    <?php if (isset($post)) { ?>
     <textarea id="content" name="content">{!! htmlentities($post->content) !!}</textarea>
     <?php } else { ?>
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}

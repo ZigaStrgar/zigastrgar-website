@@ -12,7 +12,7 @@ class CreateBiographiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('biographies', function(Blueprint $table) {
+        Schema::create('biographies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('subtitle')->nullable();

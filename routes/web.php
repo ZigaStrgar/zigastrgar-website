@@ -15,11 +15,11 @@ Route::resource('portfolio', 'PortfoliosController', [ 'except' => [ 'show' ] ])
 //Route::resource('comments', 'CommentsController', [ 'except' => [ 'show', 'index', 'create' ] ]);
 //Route::resource('courses', 'CoursesController', [ 'only' => [ 'index', 'show' ] ]);
 
-Route::group([ 'middleware' => [ 'auth' ] ], function() {
+Route::group([ 'middleware' => [ 'auth' ] ], function () {
     Route::get('dashboard', 'PagesController@dashboard');
 });
 
-Route::get('attachment/{filename}', function($filename) {
+Route::get('attachment/{filename}', function ($filename) {
     $extension = collect(explode(".", $filename))->last();
     $name      = \App\Attachment::where('path', 'LIKE', '%' . $filename)->first()->name;
 

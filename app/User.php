@@ -6,13 +6,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-
     protected static function boot()
     {
         parent::boot();
 
-        static::creating(function(User $user) {
-            if ( $user->email == "ziga_strgar@hotmail.com" ) {
+        static::creating(function (User $user) {
+            if ($user->email == "ziga_strgar@hotmail.com") {
                 $user->type = 'admin';
             }
         });

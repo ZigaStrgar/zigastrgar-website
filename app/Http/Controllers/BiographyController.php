@@ -10,7 +10,6 @@ use App\Http\Requests;
 
 class BiographyController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('admin', [ 'except' => [ 'index' ] ]);
@@ -50,7 +49,7 @@ class BiographyController extends Controller
     {
         $biography = Biography::create($request->all());
 
-        if ( $request->hasFile('attachment') ) {
+        if ($request->hasFile('attachment')) {
             $path = $request->file('attachment')->store('public/attachments');
             $biography->attachment()->create([ 'name' => $request->input('attachment_name'), 'path' => $path ]);
         }
@@ -85,8 +84,8 @@ class BiographyController extends Controller
         $biography = Biography::findOrFail($id);
         $biography->update($request->all());
 
-        if ( $request->hasFile('attachment') ) {
-            if ( !$biography->hasAttachment() ) {
+        if ($request->hasFile('attachment')) {
+            if (!$biography->hasAttachment()) {
                 $biography->attachment()->create([
                     'path' => $request->file('attachment')->store('public/attachments'),
                     'name' => $request->input('attachment_name')

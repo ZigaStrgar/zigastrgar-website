@@ -30,7 +30,7 @@ class Portfolio extends Model
 
     public function getImagePathAttribute()
     {
-        if ( is_null($this->image) ) {
+        if (is_null($this->image)) {
             return "";
         }
 

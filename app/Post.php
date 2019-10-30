@@ -51,7 +51,8 @@ class Post extends Model
         return $this->tags->pluck('id')->toArray();
     }
 
-    public function getPublishedAtAttribute($date){
+    public function getPublishedAtAttribute($date)
+    {
         return Carbon::parse($date)->format('Y-m-d');
     }
 

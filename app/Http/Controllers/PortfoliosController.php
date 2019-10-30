@@ -11,7 +11,6 @@ use App\Http\Requests;
 
 class PortfoliosController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth', [ 'except' => [ 'index' ] ]);
@@ -51,7 +50,7 @@ class PortfoliosController extends Controller
     {
         $portfolio = Portfolio::create($request->all());
 
-        if ( $request->hasFile('image') ) {
+        if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', ['disk' => 'public']);
             $portfolio->image()->create([ 'resource' => 'portfolio', 'path' => $path ]);
         }
@@ -85,12 +84,12 @@ class PortfoliosController extends Controller
     {
         $portfolio = Portfolio::findOrFail($id);
         $data      =
-            ( $request->has('mobile') ) ? $request->all() : array_merge($request->all(), [ 'mobile' => false ]);
+            ($request->has('mobile')) ? $request->all() : array_merge($request->all(), [ 'mobile' => false ]);
 
         $portfolio->update($data);
 
-        if ( $request->hasFile('image') ) {
-            if ( is_null($portfolio->image) ) {
+        if ($request->hasFile('image')) {
+            if (is_null($portfolio->image)) {
                 $portfolio->image()->create([
                     'path'     => $request->file('image')->store('images', ['disk' => 'public']),
                     'resource' => 'portfolio'
@@ -116,7 +115,7 @@ class PortfoliosController extends Controller
     {
         $portfolio = Portfolio::findOrFail($id);
 
-        if ( !is_null($portfolio->image) ) {
+        if (!is_null($portfolio->image)) {
             $portfolio->image->where('resource', 'portfolio')->where('resource_id', $id)->delete();
         }
 

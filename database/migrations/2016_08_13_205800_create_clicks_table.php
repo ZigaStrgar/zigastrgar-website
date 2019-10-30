@@ -12,7 +12,7 @@ class CreateClicksTable extends Migration
      */
     public function up()
     {
-        Schema::create('clicks', function(Blueprint $table) {
+        Schema::create('clicks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id')->unsigned()->index();
             $table->foreign('post_id')->references('id')->on('posts');
@@ -30,7 +30,7 @@ class CreateClicksTable extends Migration
      */
     public function down()
     {
-        Schema::table('clicks', function(Blueprint $table) {
+        Schema::table('clicks', function (Blueprint $table) {
             $table->dropForeign('clicks_post_id_foreign');
         });
 
