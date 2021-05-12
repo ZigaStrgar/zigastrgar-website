@@ -53,6 +53,6 @@
         And my perosnal life is filled with learning French. Oui, Française. Out of all languages.
         It's my passion to learn French and someday live for a bit on the southern beaches of France.
         Last but not least, it's filled with paying Flag Football as a defensive back at
-        <a rel="noopener" target="_blank" href="https://ljubljanafrogs.si/teams/ljubljana-frogs/players/ziga-strgar-25">Ljubljana Frogs</a>, which is also a club I co-founded in May 2020.
+        <a rel="noopener follow index" target="_blank" href="https://ljubljanafrogs.si/teams/ljubljana-frogs/players/ziga-strgar-25">Ljubljana Frogs</a>, which is also a club I co-founded in May 2020.
     </p>
 @endsection
